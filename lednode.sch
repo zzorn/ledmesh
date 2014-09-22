@@ -41397,10 +41397,10 @@ Through-hole photocell (http://www.sparkfun.com/products/9088)&lt;br&gt;
 <part name="C7" library="rcl" deviceset="C-EU" device="C1206" value="10 uF"/>
 <part name="C8" library="rcl" deviceset="C-EU" device="C0805" value="100 nF"/>
 <part name="SUPPLY10" library="supply2" deviceset="+12V" device=""/>
-<part name="Q3" library="adafruit" deviceset="MOSFET-N" device="WAVE"/>
-<part name="Q4" library="adafruit" deviceset="MOSFET-N" device="WAVE"/>
-<part name="Q1" library="adafruit" deviceset="MOSFET-N" device="WAVE"/>
-<part name="Q2" library="adafruit" deviceset="MOSFET-N" device="WAVE"/>
+<part name="Q3" library="adafruit" deviceset="MOSFET-N" device="WAVE" value="AO3402"/>
+<part name="Q4" library="adafruit" deviceset="MOSFET-N" device="WAVE" value="AO3402"/>
+<part name="Q1" library="adafruit" deviceset="MOSFET-N" device="WAVE" value="AO3402"/>
+<part name="Q2" library="adafruit" deviceset="MOSFET-N" device="WAVE" value="AO3402"/>
 <part name="SUPPLY11" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY12" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY13" library="supply2" deviceset="GND" device=""/>
@@ -41455,22 +41455,22 @@ Through-hole photocell (http://www.sparkfun.com/products/9088)&lt;br&gt;
 <part name="SUPPLY53" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY56" library="supply2" deviceset="+12V" device=""/>
 <part name="SPOT5" library="SparkFun-Connectors" deviceset="M02" device="5MM"/>
-<part name="Q5" library="adafruit" deviceset="MOSFET-N" device="WAVE"/>
+<part name="Q5" library="adafruit" deviceset="MOSFET-N" device="WAVE" value="AO3402"/>
 <part name="SUPPLY57" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY58" library="supply2" deviceset="+12V" device=""/>
 <part name="RN3" library="dp_devices" deviceset="RESISTOR_ARRAY_4" device="" value="220R"/>
 <part name="RN4" library="dp_devices" deviceset="RESISTOR_ARRAY_4" device="" value="10k"/>
 <part name="SUPPLY60" library="supply2" deviceset="GND" device=""/>
 <part name="SPOT6" library="SparkFun-Connectors" deviceset="M02" device="5MM"/>
-<part name="Q6" library="adafruit" deviceset="MOSFET-N" device="WAVE"/>
+<part name="Q6" library="adafruit" deviceset="MOSFET-N" device="WAVE" value="AO3402"/>
 <part name="SUPPLY59" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY61" library="supply2" deviceset="+12V" device=""/>
 <part name="SUPPLY63" library="supply2" deviceset="GND" device=""/>
 <part name="LOGO3" library="Logo" deviceset="LOGO-OSHW-8MIL" device="X0100-NT"/>
-<part name="TXO" library="SparkFun-Connectors" deviceset="M01" device="NOSILK-KIT" value=""/>
-<part name="RXI" library="SparkFun-Connectors" deviceset="M01" device="NOSILK-KIT" value=""/>
-<part name="RESET" library="SparkFun-Connectors" deviceset="M01" device="NOSILK-KIT" value=""/>
-<part name="GND" library="SparkFun-Connectors" deviceset="M01" device="NOSILK-KIT" value=""/>
+<part name="TXO" library="SparkFun-Connectors" deviceset="M01" device="SMDNS" value="M01SMDNS"/>
+<part name="RXI" library="SparkFun-Connectors" deviceset="M01" device="SMDNS" value="M01SMDNS"/>
+<part name="RESET" library="SparkFun-Connectors" deviceset="M01" device="SMDNS" value="M01SMDNS"/>
+<part name="GND" library="SparkFun-Connectors" deviceset="M01" device="SMDNS" value="M01SMDNS"/>
 <part name="SUPPLY62" library="supply2" deviceset="GND" device=""/>
 </parts>
 <sheets>
@@ -41487,6 +41487,7 @@ Through-hole photocell (http://www.sparkfun.com/products/9088)&lt;br&gt;
 <text x="-17.78" y="88.9" size="2.54" layer="91">Power And Data Connectors</text>
 <text x="132.08" y="83.82" size="2.54" layer="91">Spotlight Drivers</text>
 <text x="-111.76" y="15.24" size="2.54" layer="91">Sound Sensor</text>
+<text x="-63.5" y="30.48" size="2.1844" layer="91">Breakouts for unused pins</text>
 </plain>
 <instances>
 <instance part="SUPPLY2" gate="+5V" x="27.94" y="10.16"/>
@@ -41609,11 +41610,11 @@ Through-hole photocell (http://www.sparkfun.com/products/9088)&lt;br&gt;
 <instance part="RN4" gate="D" x="139.7" y="-83.82" rot="R90"/>
 <instance part="RN3" gate="D" x="144.78" y="-78.74"/>
 <instance part="LOGO3" gate="G$1" x="2.54" y="-129.54"/>
-<instance part="TXO" gate="G$1" x="-22.86" y="22.86" rot="R270"/>
-<instance part="RXI" gate="G$1" x="-33.02" y="20.32" rot="R270"/>
-<instance part="RESET" gate="G$1" x="-43.18" y="17.78" rot="R270"/>
-<instance part="GND" gate="G$1" x="-53.34" y="15.24" rot="R270"/>
-<instance part="SUPPLY62" gate="GND" x="-53.34" y="5.08"/>
+<instance part="TXO" gate="G$1" x="-30.48" y="25.4" rot="R270"/>
+<instance part="RXI" gate="G$1" x="-40.64" y="25.4" rot="R270"/>
+<instance part="RESET" gate="G$1" x="-50.8" y="25.4" rot="R270"/>
+<instance part="GND" gate="G$1" x="-60.96" y="25.4" rot="R270"/>
+<instance part="SUPPLY62" gate="GND" x="-60.96" y="15.24"/>
 </instances>
 <busses>
 </busses>
@@ -42317,14 +42318,16 @@ Through-hole photocell (http://www.sparkfun.com/products/9088)&lt;br&gt;
 <net name="N$14" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="TXO"/>
-<wire x1="-22.86" y1="15.24" x2="-10.16" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="-30.48" y1="17.78" x2="-30.48" y2="15.24" width="0.1524" layer="91"/>
+<wire x1="-30.48" y1="15.24" x2="-10.16" y2="15.24" width="0.1524" layer="91"/>
 <pinref part="TXO" gate="G$1" pin="1"/>
 </segment>
 </net>
 <net name="N$15" class="0">
 <segment>
 <pinref part="U$1" gate="G$1" pin="RXI"/>
-<wire x1="-33.02" y1="12.7" x2="-10.16" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="-40.64" y1="17.78" x2="-40.64" y2="12.7" width="0.1524" layer="91"/>
+<wire x1="-40.64" y1="12.7" x2="-10.16" y2="12.7" width="0.1524" layer="91"/>
 <pinref part="RXI" gate="G$1" pin="1"/>
 </segment>
 </net>
@@ -42332,7 +42335,8 @@ Through-hole photocell (http://www.sparkfun.com/products/9088)&lt;br&gt;
 <segment>
 <pinref part="U$1" gate="G$1" pin="RST"/>
 <pinref part="RESET" gate="G$1" pin="1"/>
-<wire x1="-10.16" y1="10.16" x2="-43.18" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="-10.16" y1="10.16" x2="-50.8" y2="10.16" width="0.1524" layer="91"/>
+<wire x1="-50.8" y1="10.16" x2="-50.8" y2="17.78" width="0.1524" layer="91"/>
 </segment>
 </net>
 </nets>
