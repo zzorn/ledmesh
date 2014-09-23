@@ -671,65 +671,6 @@ We've spent an enormous amount of time creating and checking these footprints an
 &lt;br&gt;&lt;br&gt;
 You are welcome to use this library for commercial purposes. For attribution, we ask that when you begin to sell your device using our footprint, you email us with a link to the product being sold. We want bragging rights that we helped (in a very small part) to create your 8th world wonder. We would like the opportunity to feature your device on our homepage.</description>
 <packages>
-<package name="ATX24_RIGHT_ANGLE">
-<wire x1="-25.9" y1="3.4" x2="-25.9" y2="-9.14" width="0.254" layer="21"/>
-<wire x1="-25.9" y1="-9.14" x2="25.9" y2="-9.14" width="0.254" layer="21"/>
-<wire x1="25.9" y1="-9.14" x2="25.9" y2="3.4" width="0.254" layer="21"/>
-<wire x1="25.9" y1="3.4" x2="-25.9" y2="3.4" width="0.2032" layer="51"/>
-<wire x1="-25" y1="4" x2="-25" y2="12" width="0.127" layer="51"/>
-<wire x1="-25" y1="12" x2="25" y2="12" width="0.127" layer="51"/>
-<wire x1="25" y1="12" x2="25" y2="4" width="0.127" layer="51"/>
-<wire x1="25.9" y1="3.4" x2="24" y2="3.4" width="0.254" layer="21"/>
-<wire x1="-25.9" y1="3.4" x2="-24" y2="3.4" width="0.254" layer="21"/>
-<wire x1="-20" y1="3.4" x2="-22" y2="3.4" width="0.254" layer="21"/>
-<wire x1="-15.8" y1="3.4" x2="-17.8" y2="3.4" width="0.254" layer="21"/>
-<wire x1="-11.5" y1="3.4" x2="-13.5" y2="3.4" width="0.254" layer="21"/>
-<wire x1="-7.4" y1="3.4" x2="-9.4" y2="3.4" width="0.254" layer="21"/>
-<wire x1="-3.2" y1="3.4" x2="-5.2" y2="3.4" width="0.254" layer="21"/>
-<wire x1="1" y1="3.4" x2="-1" y2="3.4" width="0.254" layer="21"/>
-<wire x1="5.2" y1="3.4" x2="3.2" y2="3.4" width="0.254" layer="21"/>
-<wire x1="9.4" y1="3.4" x2="7.4" y2="3.4" width="0.254" layer="21"/>
-<wire x1="13.6" y1="3.4" x2="11.6" y2="3.4" width="0.254" layer="21"/>
-<wire x1="17.8" y1="3.4" x2="15.8" y2="3.4" width="0.254" layer="21"/>
-<wire x1="22" y1="3.4" x2="20" y2="3.4" width="0.254" layer="21"/>
-<wire x1="-1.7" y1="-9" x2="-1.7" y2="-6" width="0.254" layer="21"/>
-<wire x1="-1.7" y1="-6" x2="1.7" y2="-6" width="0.254" layer="21"/>
-<wire x1="1.7" y1="-6" x2="1.7" y2="-9" width="0.254" layer="21"/>
-<pad name="1" x="23.1" y="4.76" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="2" x="18.9" y="4.76" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="3" x="14.7" y="4.76" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="4" x="10.5" y="4.76" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="5" x="6.3" y="4.76" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="6" x="2.1" y="4.76" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="7" x="-2.1" y="4.76" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="8" x="-6.3" y="4.76" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="9" x="-10.5" y="4.76" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="10" x="-14.7" y="4.76" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="11" x="-18.9" y="4.76" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="12" x="-23.1" y="4.76" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="13" x="23.1" y="10.26" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="14" x="18.9" y="10.26" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="15" x="14.7" y="10.26" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="16" x="10.5" y="10.26" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="17" x="6.3" y="10.26" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="18" x="2.1" y="10.26" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="19" x="-2.1" y="10.26" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="20" x="-6.3" y="10.26" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="21" x="-10.5" y="10.26" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="22" x="-14.7" y="10.26" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="23" x="-18.9" y="10.26" drill="1.8" diameter="2.9" rot="R180"/>
-<pad name="24" x="-23.1" y="10.26" drill="1.8" diameter="2.9" rot="R180"/>
-<text x="-25.4" y="-11.43" size="1.27" layer="25">&gt;Name</text>
-<text x="20.32" y="-11.43" size="1.27" layer="27">&gt;Value</text>
-<hole x="-23.1" y="-2.54" drill="3"/>
-<hole x="23.1" y="-2.54" drill="3"/>
-<polygon width="0.254" layer="21">
-<vertex x="-1.7" y="-7"/>
-<vertex x="1.7" y="-7"/>
-<vertex x="1.7" y="-6"/>
-<vertex x="-1.7" y="-6"/>
-</polygon>
-</package>
 <package name="1X03">
 <wire x1="3.81" y1="0.635" x2="4.445" y2="1.27" width="0.2032" layer="21"/>
 <wire x1="4.445" y1="1.27" x2="5.715" y2="1.27" width="0.2032" layer="21"/>
@@ -1084,38 +1025,6 @@ Matches 4UCONN part # 11026&lt;br&gt;
 </package>
 </packages>
 <symbols>
-<symbol name="ATX24-1">
-<wire x1="-12.7" y1="-22.86" x2="-12.7" y2="20.32" width="0.254" layer="94"/>
-<wire x1="-12.7" y1="20.32" x2="10.16" y2="20.32" width="0.254" layer="94"/>
-<wire x1="10.16" y1="20.32" x2="10.16" y2="-22.86" width="0.254" layer="94"/>
-<wire x1="10.16" y1="-22.86" x2="-12.7" y2="-22.86" width="0.254" layer="94"/>
-<text x="-12.7" y="20.32" size="1.27" layer="95">&gt;Name</text>
-<text x="-12.7" y="-25.4" size="1.27" layer="96">&gt;Value</text>
-<pin name="-12V" x="12.7" y="-7.62" length="short" rot="R180"/>
-<pin name="3.3V@0" x="12.7" y="17.78" length="short" rot="R180"/>
-<pin name="3.3V@1" x="12.7" y="15.24" length="short" rot="R180"/>
-<pin name="3.3V@2" x="12.7" y="12.7" length="short" rot="R180"/>
-<pin name="3.3V@3" x="12.7" y="10.16" length="short" rot="R180"/>
-<pin name="5V@0" x="-15.24" y="7.62" length="short"/>
-<pin name="5V@1" x="-15.24" y="10.16" length="short"/>
-<pin name="5V@2" x="-15.24" y="12.7" length="short"/>
-<pin name="5V@3" x="-15.24" y="15.24" length="short"/>
-<pin name="5V@4" x="-15.24" y="17.78" length="short"/>
-<pin name="5V_STDBY" x="-15.24" y="2.54" length="short"/>
-<pin name="12V@0" x="12.7" y="0" length="short" rot="R180"/>
-<pin name="12V@1" x="12.7" y="-2.54" length="short" rot="R180"/>
-<pin name="GND@0" x="-15.24" y="-20.32" length="short"/>
-<pin name="GND@1" x="-15.24" y="-17.78" length="short"/>
-<pin name="GND@2" x="-15.24" y="-15.24" length="short"/>
-<pin name="GND@3" x="-15.24" y="-12.7" length="short"/>
-<pin name="GND@4" x="-15.24" y="-10.16" length="short"/>
-<pin name="GND@5" x="-15.24" y="-7.62" length="short"/>
-<pin name="GND@6" x="-15.24" y="-5.08" length="short"/>
-<pin name="GND@7" x="-15.24" y="-2.54" length="short"/>
-<pin name="NC" x="12.7" y="-20.32" length="short" rot="R180"/>
-<pin name="PS_ON" x="12.7" y="-12.7" length="short" rot="R180"/>
-<pin name="PWR_OK" x="12.7" y="-15.24" length="short" rot="R180"/>
-</symbol>
 <symbol name="M03">
 <wire x1="3.81" y1="-5.08" x2="-2.54" y2="-5.08" width="0.4064" layer="94"/>
 <wire x1="1.27" y1="2.54" x2="2.54" y2="2.54" width="0.6096" layer="94"/>
@@ -1132,45 +1041,6 @@ Matches 4UCONN part # 11026&lt;br&gt;
 </symbol>
 </symbols>
 <devicesets>
-<deviceset name="ATX24" prefix="J">
-<description>&lt;b&gt;ATX24 Pin Power Supply Connector&lt;/b&gt; This is a good connector for connecting a computer power supply to a PCB. It's massive, but provides many amps of power at 5V and 12V. SKU: PRT-09498</description>
-<gates>
-<gate name="G$1" symbol="ATX24-1" x="-12.7" y="-22.86"/>
-</gates>
-<devices>
-<device name="RH" package="ATX24_RIGHT_ANGLE">
-<connects>
-<connect gate="G$1" pin="-12V" pad="14"/>
-<connect gate="G$1" pin="12V@0" pad="10"/>
-<connect gate="G$1" pin="12V@1" pad="11"/>
-<connect gate="G$1" pin="3.3V@0" pad="1"/>
-<connect gate="G$1" pin="3.3V@1" pad="2"/>
-<connect gate="G$1" pin="3.3V@2" pad="12"/>
-<connect gate="G$1" pin="3.3V@3" pad="13"/>
-<connect gate="G$1" pin="5V@0" pad="4"/>
-<connect gate="G$1" pin="5V@1" pad="6"/>
-<connect gate="G$1" pin="5V@2" pad="21"/>
-<connect gate="G$1" pin="5V@3" pad="22"/>
-<connect gate="G$1" pin="5V@4" pad="23"/>
-<connect gate="G$1" pin="5V_STDBY" pad="9"/>
-<connect gate="G$1" pin="GND@0" pad="3"/>
-<connect gate="G$1" pin="GND@1" pad="5"/>
-<connect gate="G$1" pin="GND@2" pad="7"/>
-<connect gate="G$1" pin="GND@3" pad="15"/>
-<connect gate="G$1" pin="GND@4" pad="17"/>
-<connect gate="G$1" pin="GND@5" pad="18"/>
-<connect gate="G$1" pin="GND@6" pad="19"/>
-<connect gate="G$1" pin="GND@7" pad="24"/>
-<connect gate="G$1" pin="NC" pad="20"/>
-<connect gate="G$1" pin="PS_ON" pad="16"/>
-<connect gate="G$1" pin="PWR_OK" pad="8"/>
-</connects>
-<technologies>
-<technology name=""/>
-</technologies>
-</device>
-</devices>
-</deviceset>
 <deviceset name="M03" prefix="JP" uservalue="yes">
 <description>&lt;b&gt;Header 3&lt;/b&gt;
 Standard 3-pin 0.1" header. Use with straight break away headers (SKU : PRT-00116), right angle break away headers (PRT-00553), swiss pins (PRT-00743), machine pins (PRT-00117), and female headers (PRT-00115). Molex polarized connector foot print use with SKU : PRT-08232 with associated crimp pins and housings.</description>
@@ -11482,6 +11352,57 @@ Source: http://www.molex.com</description>
 <hole x="8.9" y="2.29" drill="3"/>
 <hole x="-8.9" y="2.29" drill="3"/>
 </package>
+<package name="5566-24">
+<description>&lt;b&gt;Mini FIT connector 24 pol&lt;/b&gt;&lt;p&gt;
+Source: http://www.molex.com</description>
+<wire x1="-25.7" y1="4.5" x2="25.7" y2="4.5" width="0.254" layer="21"/>
+<wire x1="25.7" y1="4.5" x2="25.7" y2="-2.2" width="0.254" layer="21"/>
+<wire x1="25.7" y1="-3.3" x2="25.7" y2="-4.9" width="0.254" layer="21"/>
+<wire x1="25.7" y1="-4.9" x2="-25.7" y2="-4.9" width="0.254" layer="21"/>
+<wire x1="-25.7" y1="-4.9" x2="-25.7" y2="4.5" width="0.254" layer="21"/>
+<wire x1="-29.2" y1="3.2" x2="-26.4" y2="3.2" width="0.254" layer="21" curve="-114.529547"/>
+<wire x1="-29.2" y1="1.4" x2="-26.4" y2="1.4" width="0.254" layer="21" curve="114.529547"/>
+<wire x1="-29.2" y1="3.2" x2="-29.2" y2="1.4" width="0.254" layer="21"/>
+<wire x1="-26.5" y1="3.3" x2="-25.8" y2="3.3" width="0.254" layer="21"/>
+<wire x1="-26.5" y1="1.3" x2="-25.8" y2="1.3" width="0.254" layer="21"/>
+<wire x1="26.4" y1="1.4" x2="29.2" y2="1.4" width="0.254" layer="21" curve="114.529547"/>
+<wire x1="26.4" y1="3.2" x2="29.2" y2="3.2" width="0.254" layer="21" curve="-114.529547"/>
+<wire x1="29.2" y1="1.4" x2="29.2" y2="3.2" width="0.254" layer="21"/>
+<wire x1="26.5" y1="1.3" x2="25.8" y2="1.3" width="0.254" layer="21"/>
+<wire x1="26.5" y1="3.3" x2="25.8" y2="3.3" width="0.254" layer="21"/>
+<wire x1="25.7" y1="-2.2" x2="25.7" y2="-3.3" width="0.254" layer="21" curve="-180"/>
+<wire x1="-2.1" y1="6.3" x2="2.1" y2="6.3" width="0.254" layer="27"/>
+<wire x1="-2.1" y1="6.3" x2="-2.1" y2="4.6" width="0.254" layer="27"/>
+<wire x1="2.1" y1="6.3" x2="2.1" y2="4.6" width="0.254" layer="27"/>
+<pad name="1" x="23.1" y="-2.75" drill="1.4" shape="square"/>
+<pad name="2" x="18.9" y="-2.75" drill="1.4" shape="square"/>
+<pad name="3" x="14.7" y="-2.75" drill="1.4" shape="square"/>
+<pad name="4" x="10.5" y="-2.75" drill="1.4" shape="square"/>
+<pad name="5" x="6.3" y="-2.75" drill="1.4" shape="square"/>
+<pad name="6" x="2.1" y="-2.75" drill="1.4" shape="square"/>
+<pad name="7" x="-2.1" y="-2.75" drill="1.4" shape="square"/>
+<pad name="8" x="-6.3" y="-2.75" drill="1.4" shape="square"/>
+<pad name="9" x="-10.5" y="-2.75" drill="1.4" shape="square"/>
+<pad name="10" x="-14.7" y="-2.75" drill="1.4" shape="square"/>
+<pad name="11" x="-18.9" y="-2.75" drill="1.4" shape="square"/>
+<pad name="13" x="23.1" y="2.75" drill="1.4" shape="square"/>
+<pad name="14" x="18.9" y="2.75" drill="1.4" shape="square"/>
+<pad name="15" x="14.7" y="2.75" drill="1.4" shape="square"/>
+<pad name="16" x="10.5" y="2.75" drill="1.4" shape="square"/>
+<pad name="17" x="6.3" y="2.75" drill="1.4" shape="square"/>
+<pad name="18" x="2.1" y="2.75" drill="1.4" shape="square"/>
+<pad name="19" x="-2.1" y="2.75" drill="1.4" shape="square"/>
+<pad name="20" x="-6.3" y="2.75" drill="1.4" shape="square"/>
+<pad name="21" x="-10.5" y="2.75" drill="1.4" shape="square"/>
+<pad name="22" x="-14.7" y="2.75" drill="1.4" shape="square"/>
+<pad name="12" x="-23.1" y="-2.75" drill="1.4" shape="square"/>
+<pad name="23" x="-18.9" y="2.75" drill="1.4" shape="square"/>
+<pad name="24" x="-23.1" y="2.75" drill="1.4" shape="square"/>
+<text x="20.32" y="-6.985" size="1.27" layer="25">&gt;NAME</text>
+<text x="-24.765" y="-6.985" size="1.27" layer="27">&gt;VALUE</text>
+<hole x="27.8" y="2.29" drill="3"/>
+<hole x="-27.8" y="2.29" drill="3"/>
+</package>
 </packages>
 <symbols>
 <symbol name="MV">
@@ -11557,6 +11478,74 @@ Source: http://www.molex.com</description>
 </device>
 </devices>
 </deviceset>
+<deviceset name="5566-24" prefix="X">
+<description>&lt;b&gt;Mini FIT connector 24 pol&lt;/b&gt;&lt;p&gt;
+Source: http://www.molex.com</description>
+<gates>
+<gate name="-1" symbol="MV" x="0" y="27.94" addlevel="always"/>
+<gate name="-2" symbol="M" x="0" y="25.4" addlevel="always"/>
+<gate name="-3" symbol="M" x="0" y="22.86" addlevel="always"/>
+<gate name="-4" symbol="M" x="0" y="20.32" addlevel="always"/>
+<gate name="-5" symbol="M" x="0" y="17.78" addlevel="always"/>
+<gate name="-6" symbol="M" x="0" y="15.24" addlevel="always"/>
+<gate name="-7" symbol="M" x="0" y="12.7" addlevel="always"/>
+<gate name="-8" symbol="M" x="0" y="10.16" addlevel="always"/>
+<gate name="-9" symbol="M" x="0" y="7.62" addlevel="always"/>
+<gate name="-10" symbol="M" x="0" y="5.08" addlevel="always"/>
+<gate name="-11" symbol="M" x="0" y="2.54" addlevel="always"/>
+<gate name="-12" symbol="M" x="0" y="0" addlevel="always"/>
+<gate name="-13" symbol="M" x="0" y="-2.54" addlevel="always"/>
+<gate name="-14" symbol="M" x="0" y="-5.08" addlevel="always"/>
+<gate name="-15" symbol="M" x="0" y="-7.62" addlevel="always"/>
+<gate name="-16" symbol="M" x="0" y="-10.16" addlevel="always"/>
+<gate name="-17" symbol="M" x="0" y="-12.7" addlevel="always"/>
+<gate name="-18" symbol="M" x="0" y="-15.24" addlevel="always"/>
+<gate name="-19" symbol="M" x="0" y="-17.78" addlevel="always"/>
+<gate name="-20" symbol="M" x="0" y="-20.32" addlevel="always"/>
+<gate name="-21" symbol="M" x="0" y="-22.86" addlevel="always"/>
+<gate name="-22" symbol="M" x="0" y="-25.4" addlevel="always"/>
+<gate name="-23" symbol="M" x="0" y="-27.94" addlevel="always"/>
+<gate name="-24" symbol="M" x="0" y="-30.48" addlevel="always"/>
+</gates>
+<devices>
+<device name="" package="5566-24">
+<connects>
+<connect gate="-1" pin="S" pad="1"/>
+<connect gate="-10" pin="S" pad="10"/>
+<connect gate="-11" pin="S" pad="11"/>
+<connect gate="-12" pin="S" pad="12"/>
+<connect gate="-13" pin="S" pad="13"/>
+<connect gate="-14" pin="S" pad="14"/>
+<connect gate="-15" pin="S" pad="15"/>
+<connect gate="-16" pin="S" pad="16"/>
+<connect gate="-17" pin="S" pad="17"/>
+<connect gate="-18" pin="S" pad="18"/>
+<connect gate="-19" pin="S" pad="19"/>
+<connect gate="-2" pin="S" pad="2"/>
+<connect gate="-20" pin="S" pad="20"/>
+<connect gate="-21" pin="S" pad="21"/>
+<connect gate="-22" pin="S" pad="22"/>
+<connect gate="-23" pin="S" pad="23"/>
+<connect gate="-24" pin="S" pad="24"/>
+<connect gate="-3" pin="S" pad="3"/>
+<connect gate="-4" pin="S" pad="4"/>
+<connect gate="-5" pin="S" pad="5"/>
+<connect gate="-6" pin="S" pad="6"/>
+<connect gate="-7" pin="S" pad="7"/>
+<connect gate="-8" pin="S" pad="8"/>
+<connect gate="-9" pin="S" pad="9"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="MF" value="" constant="no"/>
+<attribute name="MPN" value="" constant="no"/>
+<attribute name="OC_FARNELL" value="unknown" constant="no"/>
+<attribute name="OC_NEWARK" value="unknown" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
 </devicesets>
 </library>
 </libraries>
@@ -11588,11 +11577,6 @@ Source: http://www.molex.com</description>
 <part name="H2" library="holes" deviceset="MOUNT-HOLE" device="3.2" value="MOUNT-HOLE3.2"/>
 <part name="H3" library="holes" deviceset="MOUNT-HOLE" device="3.2" value="MOUNT-HOLE3.2"/>
 <part name="H4" library="holes" deviceset="MOUNT-HOLE" device="3.2" value="MOUNT-HOLE3.2"/>
-<part name="J1" library="SparkFun-Connectors" deviceset="ATX24" device="RH"/>
-<part name="+3V5" library="supply1" deviceset="+3V3" device=""/>
-<part name="SUPPLY22" library="supply2" deviceset="+5V" device=""/>
-<part name="SUPPLY23" library="supply2" deviceset="GND" device=""/>
-<part name="SUPPLY24" library="supply2" deviceset="+12V" device=""/>
 <part name="X1" library="con-molex" deviceset="5566-4" device=""/>
 <part name="SUPPLY4" library="supply2" deviceset="+12V" device=""/>
 <part name="SUPPLY5" library="supply2" deviceset="GND" device=""/>
@@ -11609,7 +11593,6 @@ Source: http://www.molex.com</description>
 <part name="JP8" library="SparkFun-Connectors" deviceset="M03" device="LONGPADS"/>
 <part name="JP9" library="SparkFun-Connectors" deviceset="M03" device="LONGPADS"/>
 <part name="JP10" library="SparkFun-Connectors" deviceset="M03" device="LONGPADS"/>
-<part name="SUPPLY3" library="supply2" deviceset="+5V/2" device="" value="+5V Standby"/>
 <part name="SUPPLY2" library="supply2" deviceset="+5V/2" device="" value="+5V Standby"/>
 <part name="SUPPLY9" library="supply2" deviceset="+5V/2" device="" value="+5V Standby"/>
 <part name="SUPPLY10" library="supply2" deviceset="+5V/2" device="" value="+5V Standby"/>
@@ -11618,13 +11601,19 @@ Source: http://www.molex.com</description>
 <part name="SUPPLY13" library="supply2" deviceset="GND" device=""/>
 <part name="PIR" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
 <part name="SUPPLY14" library="supply2" deviceset="GND" device=""/>
+<part name="X3" library="con-molex" deviceset="5566-24" device=""/>
+<part name="SUPPLY19" library="supply2" deviceset="+5V" device=""/>
+<part name="SUPPLY20" library="supply2" deviceset="+5V/2" device="" value="+5V Standby"/>
+<part name="SUPPLY21" library="supply2" deviceset="GND" device=""/>
+<part name="SUPPLY31" library="supply2" deviceset="+12V" device=""/>
+<part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 </parts>
 <sheets>
 <sheet>
 <plain>
-<text x="187.96" y="149.86" size="2.54" layer="91">ATX Power Connector</text>
+<text x="152.4" y="160.02" size="2.54" layer="91">ATX Power Connector</text>
 <text x="12.7" y="96.52" size="2.54" layer="91">Arduino Pro Mini Socket</text>
-<text x="246.38" y="111.76" size="1.778" layer="91">Power Switch</text>
+<text x="119.38" y="114.3" size="1.778" layer="91">Power Switch</text>
 <text x="27.94" y="-40.64" size="2.54" layer="91">Capacitance</text>
 <text x="157.48" y="12.7" size="2.54" layer="91">LED Strip Connectors (JST 3-Pin, 2.5mm grid, angled)</text>
 <text x="-63.5" y="43.18" size="2.54" layer="91">IR Remote Control Receiver</text>
@@ -11642,8 +11631,8 @@ Source: http://www.molex.com</description>
 <instances>
 <instance part="SUPPLY6" gate="GND" x="15.24" y="78.74" rot="R270"/>
 <instance part="U$1" gate="G$1" x="27.94" y="71.12"/>
-<instance part="S1" gate="1" x="248.92" y="106.68"/>
-<instance part="SUPPLY1" gate="GND" x="259.08" y="101.6"/>
+<instance part="S1" gate="1" x="132.08" y="104.14" rot="R180"/>
+<instance part="SUPPLY1" gate="GND" x="114.3" y="104.14"/>
 <instance part="C1" gate="G$1" x="38.1" y="-53.34"/>
 <instance part="SUPPLY38" gate="GND" x="38.1" y="-60.96"/>
 <instance part="SUPPLY39" gate="+5V" x="38.1" y="-48.26"/>
@@ -11659,17 +11648,12 @@ Source: http://www.molex.com</description>
 <instance part="H2" gate="G$1" x="180.34" y="55.88"/>
 <instance part="H3" gate="G$1" x="180.34" y="48.26"/>
 <instance part="H4" gate="G$1" x="180.34" y="38.1"/>
-<instance part="J1" gate="G$1" x="205.74" y="119.38"/>
-<instance part="+3V5" gate="G$1" x="223.52" y="142.24"/>
-<instance part="SUPPLY22" gate="+5V" x="185.42" y="139.7"/>
-<instance part="SUPPLY23" gate="GND" x="185.42" y="93.98"/>
-<instance part="SUPPLY24" gate="+12V" x="223.52" y="124.46"/>
 <instance part="X1" gate="-1" x="243.84" y="139.7"/>
 <instance part="X1" gate="-2" x="243.84" y="137.16"/>
 <instance part="X1" gate="-3" x="243.84" y="134.62"/>
 <instance part="X1" gate="-4" x="243.84" y="132.08"/>
-<instance part="SUPPLY4" gate="+12V" x="236.22" y="132.08" rot="R90"/>
-<instance part="SUPPLY5" gate="GND" x="236.22" y="139.7" rot="R270"/>
+<instance part="SUPPLY4" gate="+12V" x="226.06" y="134.62"/>
+<instance part="SUPPLY5" gate="GND" x="233.68" y="137.16"/>
 <instance part="X2" gate="-1" x="269.24" y="142.24"/>
 <instance part="X2" gate="-2" x="269.24" y="139.7"/>
 <instance part="X2" gate="-3" x="269.24" y="137.16"/>
@@ -11688,7 +11672,6 @@ Source: http://www.molex.com</description>
 <instance part="JP8" gate="G$1" x="190.5" y="2.54" rot="R270"/>
 <instance part="JP9" gate="G$1" x="213.36" y="2.54" rot="R270"/>
 <instance part="JP10" gate="G$1" x="236.22" y="2.54" rot="R270"/>
-<instance part="SUPPLY3" gate="G$1" x="172.72" y="124.46"/>
 <instance part="SUPPLY2" gate="G$1" x="55.88" y="81.28"/>
 <instance part="SUPPLY9" gate="G$1" x="-119.38" y="38.1"/>
 <instance part="SUPPLY10" gate="G$1" x="-43.18" y="93.98"/>
@@ -11697,6 +11680,35 @@ Source: http://www.molex.com</description>
 <instance part="SUPPLY13" gate="GND" x="43.18" y="83.82" rot="R90"/>
 <instance part="PIR" gate="G$1" x="-137.16" y="33.02"/>
 <instance part="SUPPLY14" gate="GND" x="-119.38" y="27.94"/>
+<instance part="X3" gate="-1" x="195.58" y="142.24"/>
+<instance part="X3" gate="-2" x="195.58" y="139.7"/>
+<instance part="X3" gate="-3" x="195.58" y="137.16"/>
+<instance part="X3" gate="-4" x="195.58" y="134.62"/>
+<instance part="X3" gate="-5" x="195.58" y="132.08"/>
+<instance part="X3" gate="-6" x="195.58" y="129.54"/>
+<instance part="X3" gate="-7" x="195.58" y="127"/>
+<instance part="X3" gate="-8" x="195.58" y="124.46"/>
+<instance part="X3" gate="-9" x="195.58" y="121.92"/>
+<instance part="X3" gate="-10" x="195.58" y="119.38"/>
+<instance part="X3" gate="-11" x="195.58" y="116.84"/>
+<instance part="X3" gate="-12" x="195.58" y="114.3"/>
+<instance part="X3" gate="-13" x="195.58" y="111.76"/>
+<instance part="X3" gate="-14" x="195.58" y="109.22"/>
+<instance part="X3" gate="-15" x="195.58" y="106.68"/>
+<instance part="X3" gate="-16" x="195.58" y="104.14"/>
+<instance part="X3" gate="-17" x="195.58" y="101.6"/>
+<instance part="X3" gate="-18" x="195.58" y="99.06"/>
+<instance part="X3" gate="-19" x="195.58" y="96.52"/>
+<instance part="X3" gate="-20" x="195.58" y="93.98"/>
+<instance part="X3" gate="-21" x="195.58" y="91.44"/>
+<instance part="X3" gate="-22" x="195.58" y="88.9"/>
+<instance part="X3" gate="-23" x="195.58" y="86.36"/>
+<instance part="X3" gate="-24" x="195.58" y="83.82"/>
+<instance part="SUPPLY19" gate="+5V" x="180.34" y="139.7"/>
+<instance part="SUPPLY20" gate="G$1" x="160.02" y="124.46"/>
+<instance part="SUPPLY21" gate="GND" x="190.5" y="81.28"/>
+<instance part="SUPPLY31" gate="+12V" x="149.86" y="121.92"/>
+<instance part="+3V1" gate="G$1" x="185.42" y="152.4"/>
 </instances>
 <busses>
 </busses>
@@ -11736,39 +11748,12 @@ Source: http://www.molex.com</description>
 <segment>
 <pinref part="S1" gate="1" pin="S"/>
 <pinref part="SUPPLY1" gate="GND" pin="GND"/>
-<wire x1="254" y1="104.14" x2="259.08" y2="104.14" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="J1" gate="G$1" pin="GND@7"/>
-<pinref part="J1" gate="G$1" pin="GND@6"/>
-<wire x1="190.5" y1="116.84" x2="190.5" y2="114.3" width="0.1524" layer="91"/>
-<pinref part="J1" gate="G$1" pin="GND@5"/>
-<wire x1="190.5" y1="114.3" x2="190.5" y2="111.76" width="0.1524" layer="91"/>
-<junction x="190.5" y="114.3"/>
-<pinref part="J1" gate="G$1" pin="GND@4"/>
-<wire x1="190.5" y1="111.76" x2="190.5" y2="109.22" width="0.1524" layer="91"/>
-<junction x="190.5" y="111.76"/>
-<pinref part="J1" gate="G$1" pin="GND@3"/>
-<wire x1="190.5" y1="109.22" x2="190.5" y2="106.68" width="0.1524" layer="91"/>
-<junction x="190.5" y="109.22"/>
-<pinref part="J1" gate="G$1" pin="GND@2"/>
-<wire x1="190.5" y1="106.68" x2="190.5" y2="104.14" width="0.1524" layer="91"/>
-<junction x="190.5" y="106.68"/>
-<pinref part="J1" gate="G$1" pin="GND@1"/>
-<wire x1="190.5" y1="104.14" x2="190.5" y2="101.6" width="0.1524" layer="91"/>
-<junction x="190.5" y="104.14"/>
-<pinref part="J1" gate="G$1" pin="GND@0"/>
-<wire x1="190.5" y1="101.6" x2="190.5" y2="99.06" width="0.1524" layer="91"/>
-<junction x="190.5" y="101.6"/>
-<wire x1="190.5" y1="99.06" x2="185.42" y2="99.06" width="0.1524" layer="91"/>
-<junction x="190.5" y="99.06"/>
-<pinref part="SUPPLY23" gate="GND" pin="GND"/>
-<wire x1="185.42" y1="96.52" x2="185.42" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="127" y1="106.68" x2="114.3" y2="106.68" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="X1" gate="-1" pin="S"/>
 <pinref part="SUPPLY5" gate="GND" pin="GND"/>
-<wire x1="238.76" y1="139.7" x2="241.3" y2="139.7" width="0.1524" layer="91"/>
+<wire x1="233.68" y1="139.7" x2="241.3" y2="139.7" width="0.1524" layer="91"/>
 <pinref part="X1" gate="-2" pin="S"/>
 <wire x1="241.3" y1="137.16" x2="241.3" y2="139.7" width="0.1524" layer="91"/>
 <junction x="241.3" y="139.7"/>
@@ -11792,6 +11777,39 @@ Source: http://www.molex.com</description>
 <pinref part="PIR" gate="G$1" pin="1"/>
 <pinref part="SUPPLY14" gate="GND" pin="GND"/>
 <wire x1="-119.38" y1="30.48" x2="-129.54" y2="30.48" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="X3" gate="-24" pin="S"/>
+<pinref part="SUPPLY21" gate="GND" pin="GND"/>
+<wire x1="190.5" y1="83.82" x2="193.04" y2="83.82" width="0.1524" layer="91"/>
+<pinref part="X3" gate="-15" pin="S"/>
+<wire x1="190.5" y1="106.68" x2="193.04" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="83.82" x2="190.5" y2="96.52" width="0.1524" layer="91"/>
+<junction x="190.5" y="83.82"/>
+<junction x="190.5" y="106.68"/>
+<pinref part="X3" gate="-7" pin="S"/>
+<wire x1="190.5" y1="96.52" x2="190.5" y2="99.06" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="99.06" x2="190.5" y2="101.6" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="101.6" x2="190.5" y2="106.68" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="127" x2="193.04" y2="127" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="106.68" x2="190.5" y2="127" width="0.1524" layer="91"/>
+<junction x="190.5" y="127"/>
+<pinref part="X3" gate="-5" pin="S"/>
+<wire x1="190.5" y1="132.08" x2="193.04" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="127" x2="190.5" y2="132.08" width="0.1524" layer="91"/>
+<junction x="190.5" y="132.08"/>
+<pinref part="X3" gate="-3" pin="S"/>
+<wire x1="190.5" y1="137.16" x2="193.04" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="190.5" y1="132.08" x2="190.5" y2="137.16" width="0.1524" layer="91"/>
+<pinref part="X3" gate="-17" pin="S"/>
+<wire x1="190.5" y1="101.6" x2="193.04" y2="101.6" width="0.1524" layer="91"/>
+<junction x="190.5" y="101.6"/>
+<pinref part="X3" gate="-18" pin="S"/>
+<wire x1="190.5" y1="99.06" x2="193.04" y2="99.06" width="0.1524" layer="91"/>
+<junction x="190.5" y="99.06"/>
+<pinref part="X3" gate="-19" pin="S"/>
+<wire x1="190.5" y1="96.52" x2="193.04" y2="96.52" width="0.1524" layer="91"/>
+<junction x="190.5" y="96.52"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -11823,56 +11841,52 @@ Source: http://www.molex.com</description>
 <junction x="17.78" y="-50.8"/>
 </segment>
 <segment>
-<pinref part="J1" gate="G$1" pin="5V@0"/>
-<pinref part="J1" gate="G$1" pin="5V@1"/>
-<wire x1="190.5" y1="127" x2="190.5" y2="129.54" width="0.1524" layer="91"/>
-<pinref part="J1" gate="G$1" pin="5V@2"/>
-<wire x1="190.5" y1="129.54" x2="190.5" y2="132.08" width="0.1524" layer="91"/>
-<junction x="190.5" y="129.54"/>
-<pinref part="J1" gate="G$1" pin="5V@3"/>
-<wire x1="190.5" y1="132.08" x2="190.5" y2="134.62" width="0.1524" layer="91"/>
-<junction x="190.5" y="132.08"/>
-<pinref part="J1" gate="G$1" pin="5V@4"/>
-<wire x1="190.5" y1="134.62" x2="190.5" y2="137.16" width="0.1524" layer="91"/>
-<junction x="190.5" y="134.62"/>
-<pinref part="SUPPLY22" gate="+5V" pin="+5V"/>
-<wire x1="190.5" y1="137.16" x2="185.42" y2="137.16" width="0.1524" layer="91"/>
-<junction x="190.5" y="137.16"/>
+<pinref part="X3" gate="-4" pin="S"/>
+<pinref part="SUPPLY19" gate="+5V" pin="+5V"/>
+<wire x1="180.34" y1="137.16" x2="180.34" y2="134.62" width="0.1524" layer="91"/>
+<pinref part="X3" gate="-6" pin="S"/>
+<wire x1="180.34" y1="134.62" x2="193.04" y2="134.62" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="129.54" x2="193.04" y2="129.54" width="0.1524" layer="91"/>
+<wire x1="180.34" y1="134.62" x2="180.34" y2="129.54" width="0.1524" layer="91"/>
+<junction x="180.34" y="134.62"/>
+<pinref part="X3" gate="-21" pin="S"/>
+<pinref part="X3" gate="-22" pin="S"/>
+<wire x1="180.34" y1="91.44" x2="193.04" y2="91.44" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="91.44" x2="193.04" y2="88.9" width="0.1524" layer="91"/>
+<junction x="193.04" y="91.44"/>
+<pinref part="X3" gate="-23" pin="S"/>
+<wire x1="193.04" y1="88.9" x2="193.04" y2="86.36" width="0.1524" layer="91"/>
+<junction x="193.04" y="88.9"/>
+<wire x1="180.34" y1="129.54" x2="180.34" y2="91.44" width="0.1524" layer="91"/>
+<junction x="180.34" y="129.54"/>
 </segment>
 </net>
 <net name="+3V3" class="0">
 <segment>
-<pinref part="J1" gate="G$1" pin="3.3V@0"/>
-<pinref part="J1" gate="G$1" pin="3.3V@1"/>
-<wire x1="218.44" y1="137.16" x2="218.44" y2="134.62" width="0.1524" layer="91"/>
-<pinref part="J1" gate="G$1" pin="3.3V@2"/>
-<wire x1="218.44" y1="134.62" x2="218.44" y2="132.08" width="0.1524" layer="91"/>
-<junction x="218.44" y="134.62"/>
-<pinref part="J1" gate="G$1" pin="3.3V@3"/>
-<wire x1="218.44" y1="132.08" x2="218.44" y2="129.54" width="0.1524" layer="91"/>
-<junction x="218.44" y="132.08"/>
-<wire x1="218.44" y1="137.16" x2="223.52" y2="137.16" width="0.1524" layer="91"/>
-<junction x="218.44" y="137.16"/>
-<pinref part="+3V5" gate="G$1" pin="+3V3"/>
-<wire x1="223.52" y1="137.16" x2="223.52" y2="139.7" width="0.1524" layer="91"/>
+<pinref part="X3" gate="-13" pin="S"/>
+<pinref part="X3" gate="-12" pin="S"/>
+<wire x1="185.42" y1="111.76" x2="193.04" y2="111.76" width="0.1524" layer="91"/>
+<wire x1="185.42" y1="114.3" x2="193.04" y2="114.3" width="0.1524" layer="91"/>
+<wire x1="185.42" y1="111.76" x2="185.42" y2="114.3" width="0.1524" layer="91"/>
+<junction x="185.42" y="114.3"/>
+<pinref part="+3V1" gate="G$1" pin="+3V3"/>
+<wire x1="185.42" y1="114.3" x2="185.42" y2="142.24" width="0.1524" layer="91"/>
+<pinref part="X3" gate="-2" pin="S"/>
+<pinref part="X3" gate="-1" pin="S"/>
+<wire x1="185.42" y1="142.24" x2="185.42" y2="149.86" width="0.1524" layer="91"/>
+<wire x1="193.04" y1="142.24" x2="193.04" y2="139.7" width="0.1524" layer="91"/>
+<junction x="193.04" y="142.24"/>
+<wire x1="193.04" y1="142.24" x2="185.42" y2="142.24" width="0.1524" layer="91"/>
+<junction x="185.42" y="142.24"/>
 </segment>
 </net>
 <net name="+12V" class="0">
-<segment>
-<pinref part="J1" gate="G$1" pin="12V@0"/>
-<pinref part="J1" gate="G$1" pin="12V@1"/>
-<wire x1="218.44" y1="119.38" x2="218.44" y2="116.84" width="0.1524" layer="91"/>
-<pinref part="SUPPLY24" gate="+12V" pin="+12V"/>
-<wire x1="218.44" y1="119.38" x2="223.52" y2="119.38" width="0.1524" layer="91"/>
-<wire x1="223.52" y1="119.38" x2="223.52" y2="121.92" width="0.1524" layer="91"/>
-<junction x="218.44" y="119.38"/>
-</segment>
 <segment>
 <pinref part="X1" gate="-3" pin="S"/>
 <pinref part="X1" gate="-4" pin="S"/>
 <wire x1="241.3" y1="134.62" x2="241.3" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="SUPPLY4" gate="+12V" pin="+12V"/>
-<wire x1="238.76" y1="132.08" x2="241.3" y2="132.08" width="0.1524" layer="91"/>
+<wire x1="226.06" y1="132.08" x2="241.3" y2="132.08" width="0.1524" layer="91"/>
 <junction x="241.3" y="132.08"/>
 </segment>
 <segment>
@@ -11886,35 +11900,38 @@ Source: http://www.molex.com</description>
 <junction x="266.7" y="142.24"/>
 <pinref part="SUPPLY7" gate="+12V" pin="+12V"/>
 </segment>
+<segment>
+<pinref part="X3" gate="-10" pin="S"/>
+<pinref part="SUPPLY31" gate="+12V" pin="+12V"/>
+<wire x1="149.86" y1="119.38" x2="193.04" y2="119.38" width="0.1524" layer="91"/>
+<pinref part="X3" gate="-11" pin="S"/>
+<wire x1="193.04" y1="119.38" x2="193.04" y2="116.84" width="0.1524" layer="91"/>
+<junction x="193.04" y="119.38"/>
+</segment>
 </net>
 <net name="PWR_OK" class="0">
 <segment>
-<wire x1="218.44" y1="104.14" x2="231.14" y2="104.14" width="0.1524" layer="91"/>
-<label x="220.98" y="104.14" size="1.778" layer="95"/>
-<pinref part="J1" gate="G$1" pin="PWR_OK"/>
+<label x="167.64" y="124.46" size="1.778" layer="95"/>
+<pinref part="X3" gate="-8" pin="S"/>
+<wire x1="167.64" y1="124.46" x2="193.04" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="-12V" class="0">
 <segment>
-<wire x1="231.14" y1="111.76" x2="218.44" y2="111.76" width="0.1524" layer="91"/>
-<label x="220.98" y="111.76" size="1.778" layer="95"/>
-<pinref part="J1" gate="G$1" pin="-12V"/>
+<label x="167.64" y="109.22" size="1.778" layer="95"/>
+<wire x1="167.64" y1="109.22" x2="193.04" y2="109.22" width="0.1524" layer="91"/>
+<pinref part="X3" gate="-14" pin="S"/>
 </segment>
 </net>
 <net name="PS_ON" class="0">
 <segment>
 <pinref part="S1" gate="1" pin="P"/>
-<wire x1="218.44" y1="106.68" x2="246.38" y2="106.68" width="0.1524" layer="91"/>
-<label x="220.98" y="106.68" size="1.778" layer="95"/>
-<pinref part="J1" gate="G$1" pin="PS_ON"/>
+<label x="167.64" y="104.14" size="1.778" layer="95"/>
+<pinref part="X3" gate="-16" pin="S"/>
+<wire x1="193.04" y1="104.14" x2="134.62" y2="104.14" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="+5V/2" class="0">
-<segment>
-<wire x1="172.72" y1="121.92" x2="190.5" y2="121.92" width="0.1524" layer="91"/>
-<pinref part="J1" gate="G$1" pin="5V_STDBY"/>
-<pinref part="SUPPLY3" gate="G$1" pin="+5V/2"/>
-</segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="VCC"/>
 <wire x1="40.64" y1="78.74" x2="55.88" y2="78.74" width="0.1524" layer="91"/>
@@ -11924,6 +11941,11 @@ Source: http://www.molex.com</description>
 <pinref part="PIR" gate="G$1" pin="3"/>
 <pinref part="SUPPLY9" gate="G$1" pin="+5V/2"/>
 <wire x1="-119.38" y1="35.56" x2="-129.54" y2="35.56" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="X3" gate="-9" pin="S"/>
+<pinref part="SUPPLY20" gate="G$1" pin="+5V/2"/>
+<wire x1="160.02" y1="121.92" x2="193.04" y2="121.92" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="PROXIMITY" class="0">
