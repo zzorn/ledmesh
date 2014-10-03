@@ -41308,15 +41308,12 @@ Source: www.kingbright.com</description>
 <part name="SUPPLY27" library="supply2" deviceset="+5V" device=""/>
 <part name="SUPPLY30" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY29" library="supply2" deviceset="+5V" device=""/>
-<part name="SUPPLY32" library="supply2" deviceset="GND" device=""/>
 <part name="IO1" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
 <part name="SUPPLY35" library="supply2" deviceset="+5V" device=""/>
 <part name="SUPPLY36" library="supply2" deviceset="GND" device=""/>
-<part name="SUPPLY37" library="supply2" deviceset="GND" device=""/>
 <part name="IO2" library="SparkFun-Connectors" deviceset="M03" device="PTH"/>
 <part name="SUPPLY47" library="supply2" deviceset="+5V" device=""/>
 <part name="SUPPLY48" library="supply2" deviceset="GND" device=""/>
-<part name="SUPPLY49" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY50" library="supply2" deviceset="GND" device=""/>
 <part name="SOUND_SENSOR" library="SparkFun-Connectors" deviceset="M04" device="1X04_NO_SILK"/>
 <part name="SUPPLY54" library="supply2" deviceset="GND" device=""/>
@@ -41363,6 +41360,7 @@ Source: www.kingbright.com</description>
 <part name="L1" library="adafruit" deviceset="WS2812B" device=""/>
 <part name="SUPPLY39" library="supply2" deviceset="+5V" device=""/>
 <part name="SUPPLY41" library="supply2" deviceset="GND" device=""/>
+<part name="SUPPLY32" library="supply2" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -41370,9 +41368,9 @@ Source: www.kingbright.com</description>
 <text x="-15.24" y="25.4" size="2.54" layer="91">Arduino Pro Mini Socket</text>
 <text x="-5.08" y="-43.18" size="2.54" layer="91">Capacitance</text>
 <text x="58.42" y="73.66" size="2.54" layer="91">WS2811 LEDstrip Connectors</text>
-<text x="-139.7" y="25.4" size="2.54" layer="91">Light level sensor</text>
+<text x="-137.16" y="33.02" size="2.54" layer="91">Light level sensor</text>
 <text x="-139.7" y="106.68" size="2.54" layer="91">Proximity Sensor (PIR)</text>
-<text x="-142.24" y="-33.02" size="2.54" layer="91">Extra Inputs / Outputs</text>
+<text x="-137.16" y="-45.72" size="2.54" layer="91">Extra Inputs / Outputs</text>
 <text x="-60.96" y="121.92" size="2.54" layer="91">Power Connector</text>
 <text x="134.62" y="91.44" size="2.54" layer="91">Spotlight Drivers</text>
 <text x="-137.16" y="68.58" size="2.54" layer="91">Sound Sensor</text>
@@ -41403,7 +41401,7 @@ Check if the yellow-green smd leds work with 3.3V and a 220 Ohm resistor.</text>
 <instance part="SUPPLY38" gate="GND" x="2.54" y="-66.04"/>
 <instance part="C3" gate="G$1" x="-2.54" y="-58.42"/>
 <instance part="C2" gate="G$1" x="-20.32" y="-58.42"/>
-<instance part="PHOTOCELL" gate="G$1" x="-127" y="7.62" rot="R90"/>
+<instance part="PHOTOCELL" gate="G$1" x="-127" y="15.24" rot="R90"/>
 <instance part="SUPPLY1" gate="+12V" x="83.82" y="63.5" rot="R90"/>
 <instance part="SUPPLY3" gate="+12V" x="83.82" y="45.72" rot="R90"/>
 <instance part="SUPPLY4" gate="+12V" x="83.82" y="27.94" rot="R90"/>
@@ -41436,11 +41434,10 @@ Check if the yellow-green smd leds work with 3.3V and a 220 Ohm resistor.</text>
 <instance part="SUPPLY18" gate="+12V" x="154.94" y="-5.08"/>
 <instance part="RN1" gate="B" x="144.78" y="38.1"/>
 <instance part="RN1" gate="C" x="144.78" y="10.16"/>
-<instance part="RN1" gate="D" x="-99.06" y="-81.28"/>
+<instance part="RN1" gate="D" x="-111.76" y="-93.98"/>
 <instance part="RN1" gate="A" x="144.78" y="66.04"/>
 <instance part="RN2" gate="B" x="139.7" y="33.02" rot="R90"/>
 <instance part="RN2" gate="C" x="139.7" y="5.08" rot="R90"/>
-<instance part="RN2" gate="D" x="-111.76" y="-86.36" rot="R90"/>
 <instance part="RN2" gate="A" x="139.7" y="60.96" rot="R90"/>
 <instance part="SUPPLY19" gate="GND" x="139.7" y="53.34"/>
 <instance part="SUPPLY20" gate="GND" x="139.7" y="25.4"/>
@@ -41448,16 +41445,13 @@ Check if the yellow-green smd leds work with 3.3V and a 220 Ohm resistor.</text>
 <instance part="SUPPLY22" gate="GND" x="139.7" y="-30.48"/>
 <instance part="SUPPLY27" gate="+5V" x="-119.38" y="99.06"/>
 <instance part="SUPPLY30" gate="GND" x="-119.38" y="88.9"/>
-<instance part="SUPPLY29" gate="+5V" x="-127" y="17.78"/>
-<instance part="SUPPLY32" gate="GND" x="-127" y="-12.7"/>
-<instance part="IO1" gate="G$1" x="-134.62" y="-48.26"/>
-<instance part="SUPPLY35" gate="+5V" x="-124.46" y="-43.18"/>
-<instance part="SUPPLY36" gate="GND" x="-124.46" y="-53.34"/>
-<instance part="SUPPLY37" gate="GND" x="-111.76" y="-60.96"/>
-<instance part="IO2" gate="G$1" x="-134.62" y="-81.28"/>
-<instance part="SUPPLY47" gate="+5V" x="-124.46" y="-76.2"/>
-<instance part="SUPPLY48" gate="GND" x="-124.46" y="-86.36"/>
-<instance part="SUPPLY49" gate="GND" x="-111.76" y="-93.98"/>
+<instance part="SUPPLY29" gate="+5V" x="-127" y="25.4"/>
+<instance part="IO1" gate="G$1" x="-134.62" y="-60.96"/>
+<instance part="SUPPLY35" gate="+5V" x="-124.46" y="-55.88"/>
+<instance part="SUPPLY36" gate="GND" x="-124.46" y="-66.04"/>
+<instance part="IO2" gate="G$1" x="-134.62" y="-93.98"/>
+<instance part="SUPPLY47" gate="+5V" x="-124.46" y="-88.9"/>
+<instance part="SUPPLY48" gate="GND" x="-124.46" y="-99.06"/>
 <instance part="SUPPLY50" gate="GND" x="20.32" y="12.7" rot="R90"/>
 <instance part="SOUND_SENSOR" gate="G$1" x="-127" y="50.8"/>
 <instance part="SUPPLY54" gate="GND" x="-119.38" y="50.8" rot="R90"/>
@@ -41470,12 +41464,9 @@ Check if the yellow-green smd leds work with 3.3V and a 220 Ohm resistor.</text>
 <instance part="SUPPLY57" gate="GND" x="154.94" y="-50.8"/>
 <instance part="SUPPLY58" gate="+12V" x="154.94" y="-33.02"/>
 <instance part="SUPPLY60" gate="GND" x="139.7" y="-58.42"/>
-<instance part="RN3" gate="A" x="-99.06" y="-48.26"/>
+<instance part="RN3" gate="A" x="-111.76" y="-60.96"/>
 <instance part="RN3" gate="B" x="144.78" y="-17.78"/>
 <instance part="RN3" gate="C" x="144.78" y="-45.72"/>
-<instance part="RN4" gate="A" x="-111.76" y="-53.34" rot="R90"/>
-<instance part="RN4" gate="B" x="139.7" y="-22.86" rot="R90"/>
-<instance part="RN4" gate="C" x="139.7" y="-50.8" rot="R90"/>
 <instance part="LOGO3" gate="G$1" x="73.66" y="-73.66"/>
 <instance part="TXO" gate="G$1" x="-30.48" y="25.4" rot="R270"/>
 <instance part="RXI" gate="G$1" x="-40.64" y="25.4" rot="R270"/>
@@ -41503,13 +41494,18 @@ Check if the yellow-green smd leds work with 3.3V and a 220 Ohm resistor.</text>
 <instance part="POWERLED" gate="G$1" x="43.18" y="104.14"/>
 <instance part="SUPPLY43" gate="GND" x="43.18" y="86.36"/>
 <instance part="RN3" gate="D" x="43.18" y="93.98" rot="R90"/>
-<instance part="RN4" gate="D" x="-127" y="-5.08" rot="R90"/>
+<instance part="RN4" gate="D" x="-127" y="2.54" rot="R90"/>
 <instance part="C9" gate="G$1" x="-40.64" y="-58.42"/>
 <instance part="C14" gate="G$1" x="-50.8" y="-58.42"/>
 <instance part="C15" gate="G$1" x="-38.1" y="-86.36"/>
 <instance part="L1" gate="G$1" x="73.66" y="-40.64"/>
 <instance part="SUPPLY39" gate="+5V" x="73.66" y="-33.02"/>
 <instance part="SUPPLY41" gate="GND" x="73.66" y="-48.26"/>
+<instance part="RN4" gate="A" x="139.7" y="-50.8" rot="R90"/>
+<instance part="RN2" gate="D" x="139.7" y="-22.86" rot="R90"/>
+<instance part="RN4" gate="C" x="-127" y="-7.62" rot="R270"/>
+<instance part="RN4" gate="B" x="-127" y="-17.78" rot="R90"/>
+<instance part="SUPPLY32" gate="GND" x="-127" y="-25.4"/>
 </instances>
 <busses>
 </busses>
@@ -41608,12 +41604,12 @@ Check if the yellow-green smd leds work with 3.3V and a 220 Ohm resistor.</text>
 <segment>
 <pinref part="IO1" gate="G$1" pin="1"/>
 <pinref part="SUPPLY36" gate="GND" pin="GND"/>
-<wire x1="-124.46" y1="-50.8" x2="-127" y2="-50.8" width="0.1524" layer="91"/>
+<wire x1="-124.46" y1="-63.5" x2="-127" y2="-63.5" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IO2" gate="G$1" pin="1"/>
 <pinref part="SUPPLY48" gate="GND" pin="GND"/>
-<wire x1="-124.46" y1="-83.82" x2="-127" y2="-83.82" width="0.1524" layer="91"/>
+<wire x1="-124.46" y1="-96.52" x2="-127" y2="-96.52" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="U$1" gate="G$1" pin="GND@2"/>
@@ -41631,22 +41627,6 @@ Check if the yellow-green smd leds work with 3.3V and a 220 Ohm resistor.</text>
 <segment>
 <pinref part="Q5" gate="G$1" pin="S"/>
 <pinref part="SUPPLY57" gate="GND" pin="GND"/>
-</segment>
-<segment>
-<pinref part="SUPPLY60" gate="GND" pin="GND"/>
-<pinref part="RN4" gate="C" pin="1"/>
-</segment>
-<segment>
-<pinref part="SUPPLY22" gate="GND" pin="GND"/>
-<pinref part="RN4" gate="B" pin="1"/>
-</segment>
-<segment>
-<pinref part="SUPPLY37" gate="GND" pin="GND"/>
-<pinref part="RN4" gate="A" pin="1"/>
-</segment>
-<segment>
-<pinref part="SUPPLY49" gate="GND" pin="GND"/>
-<pinref part="RN2" gate="D" pin="1"/>
 </segment>
 <segment>
 <pinref part="GND" gate="G$1" pin="1"/>
@@ -41683,16 +41663,24 @@ Check if the yellow-green smd leds work with 3.3V and a 220 Ohm resistor.</text>
 <pinref part="SUPPLY34" gate="GND" pin="GND"/>
 </segment>
 <segment>
-<pinref part="RN4" gate="D" pin="1"/>
-<pinref part="SUPPLY32" gate="GND" pin="GND"/>
-</segment>
-<segment>
 <pinref part="SUPPLY43" gate="GND" pin="GND"/>
 <pinref part="RN3" gate="D" pin="1"/>
 </segment>
 <segment>
 <pinref part="L1" gate="G$1" pin="GND"/>
 <pinref part="SUPPLY41" gate="GND" pin="GND"/>
+</segment>
+<segment>
+<pinref part="SUPPLY60" gate="GND" pin="GND"/>
+<pinref part="RN4" gate="A" pin="1"/>
+</segment>
+<segment>
+<pinref part="SUPPLY22" gate="GND" pin="GND"/>
+<pinref part="RN2" gate="D" pin="1"/>
+</segment>
+<segment>
+<pinref part="RN4" gate="B" pin="1"/>
+<pinref part="SUPPLY32" gate="GND" pin="GND"/>
 </segment>
 </net>
 <net name="+5V" class="0">
@@ -41724,12 +41712,12 @@ Check if the yellow-green smd leds work with 3.3V and a 220 Ohm resistor.</text>
 <segment>
 <pinref part="IO1" gate="G$1" pin="3"/>
 <pinref part="SUPPLY35" gate="+5V" pin="+5V"/>
-<wire x1="-124.46" y1="-45.72" x2="-127" y2="-45.72" width="0.1524" layer="91"/>
+<wire x1="-124.46" y1="-58.42" x2="-127" y2="-58.42" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="IO2" gate="G$1" pin="3"/>
 <pinref part="SUPPLY47" gate="+5V" pin="+5V"/>
-<wire x1="-124.46" y1="-78.74" x2="-127" y2="-78.74" width="0.1524" layer="91"/>
+<wire x1="-124.46" y1="-91.44" x2="-127" y2="-91.44" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <pinref part="SOUND_SENSOR" gate="G$1" pin="3"/>
@@ -41944,7 +41932,7 @@ Check if the yellow-green smd leds work with 3.3V and a 220 Ohm resistor.</text>
 <label x="124.46" y="-17.78" size="1.778" layer="95"/>
 <pinref part="RN3" gate="B" pin="1"/>
 <wire x1="124.46" y1="-17.78" x2="139.7" y2="-17.78" width="0.1524" layer="91"/>
-<pinref part="RN4" gate="B" pin="2"/>
+<pinref part="RN2" gate="D" pin="2"/>
 <junction x="139.7" y="-17.78"/>
 </segment>
 <segment>
@@ -41974,10 +41962,10 @@ Check if the yellow-green smd leds work with 3.3V and a 220 Ohm resistor.</text>
 <net name="LIGHTLEVEL" class="0">
 <segment>
 <pinref part="PHOTOCELL" gate="G$1" pin="P$1"/>
-<wire x1="-127" y1="0" x2="-96.52" y2="0" width="0.1524" layer="91"/>
-<label x="-116.84" y="0" size="1.778" layer="95"/>
+<wire x1="-127" y1="7.62" x2="-101.6" y2="7.62" width="0.1524" layer="91"/>
+<label x="-116.84" y="7.62" size="1.778" layer="95"/>
 <pinref part="RN4" gate="D" pin="2"/>
-<junction x="-127" y="0"/>
+<junction x="-127" y="7.62"/>
 </segment>
 <segment>
 <wire x1="12.7" y1="-17.78" x2="35.56" y2="-17.78" width="0.1524" layer="91"/>
@@ -42052,7 +42040,7 @@ Check if the yellow-green smd leds work with 3.3V and a 220 Ohm resistor.</text>
 <label x="124.46" y="-45.72" size="1.778" layer="95"/>
 <pinref part="RN3" gate="C" pin="1"/>
 <wire x1="124.46" y1="-45.72" x2="139.7" y2="-45.72" width="0.1524" layer="91"/>
-<pinref part="RN4" gate="C" pin="2"/>
+<pinref part="RN4" gate="A" pin="2"/>
 <junction x="139.7" y="-45.72"/>
 </segment>
 <segment>
@@ -42064,11 +42052,8 @@ Check if the yellow-green smd leds work with 3.3V and a 220 Ohm resistor.</text>
 <net name="SENSOR1" class="0">
 <segment>
 <pinref part="IO1" gate="G$1" pin="2"/>
-<pinref part="RN4" gate="A" pin="2"/>
-<wire x1="-127" y1="-48.26" x2="-111.76" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="-127" y1="-60.96" x2="-116.84" y2="-60.96" width="0.1524" layer="91"/>
 <pinref part="RN3" gate="A" pin="1"/>
-<wire x1="-111.76" y1="-48.26" x2="-104.14" y2="-48.26" width="0.1524" layer="91"/>
-<junction x="-111.76" y="-48.26"/>
 </segment>
 </net>
 <net name="N$8" class="0">
@@ -42086,11 +42071,8 @@ Check if the yellow-green smd leds work with 3.3V and a 220 Ohm resistor.</text>
 <net name="N$13" class="0">
 <segment>
 <pinref part="IO2" gate="G$1" pin="2"/>
-<pinref part="RN2" gate="D" pin="2"/>
-<wire x1="-127" y1="-81.28" x2="-111.76" y2="-81.28" width="0.1524" layer="91"/>
+<wire x1="-127" y1="-93.98" x2="-116.84" y2="-93.98" width="0.1524" layer="91"/>
 <pinref part="RN1" gate="D" pin="1"/>
-<wire x1="-111.76" y1="-81.28" x2="-104.14" y2="-81.28" width="0.1524" layer="91"/>
-<junction x="-111.76" y="-81.28"/>
 </segment>
 </net>
 <net name="N$14" class="0">
@@ -42222,8 +42204,8 @@ Check if the yellow-green smd leds work with 3.3V and a 220 Ohm resistor.</text>
 <label x="-33.02" y="-17.78" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="-93.98" y1="-48.26" x2="-73.66" y2="-48.26" width="0.1524" layer="91"/>
-<label x="-93.98" y="-48.26" size="1.778" layer="95"/>
+<wire x1="-106.68" y1="-60.96" x2="-91.44" y2="-60.96" width="0.1524" layer="91"/>
+<label x="-104.14" y="-60.96" size="1.778" layer="95"/>
 <pinref part="RN3" gate="A" pin="2"/>
 </segment>
 </net>
@@ -42234,8 +42216,8 @@ Check if the yellow-green smd leds work with 3.3V and a 220 Ohm resistor.</text>
 <label x="-33.02" y="-20.32" size="1.778" layer="95"/>
 </segment>
 <segment>
-<wire x1="-93.98" y1="-81.28" x2="-73.66" y2="-81.28" width="0.1524" layer="91"/>
-<label x="-93.98" y="-81.28" size="1.778" layer="95"/>
+<wire x1="-106.68" y1="-93.98" x2="-91.44" y2="-93.98" width="0.1524" layer="91"/>
+<label x="-104.14" y="-93.98" size="1.778" layer="95"/>
 <pinref part="RN1" gate="D" pin="2"/>
 </segment>
 </net>
@@ -42255,6 +42237,18 @@ Check if the yellow-green smd leds work with 3.3V and a 220 Ohm resistor.</text>
 <pinref part="L1" gate="G$1" pin="DIN"/>
 <wire x1="68.58" y1="-40.64" x2="33.02" y2="-40.64" width="0.1524" layer="91"/>
 <label x="33.02" y="-40.64" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="N$12" class="0">
+<segment>
+<pinref part="RN4" gate="D" pin="1"/>
+<pinref part="RN4" gate="C" pin="1"/>
+</segment>
+</net>
+<net name="N$17" class="0">
+<segment>
+<pinref part="RN4" gate="C" pin="2"/>
+<pinref part="RN4" gate="B" pin="2"/>
 </segment>
 </net>
 </nets>
