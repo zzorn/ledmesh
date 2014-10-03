@@ -27,9 +27,15 @@ RHDatagram manager(driver, SERVER_ADDRESS);
 #define NUM_LEDS1 10
 #define NUM_LEDS2 10
 
+#define NUM_LEDSTRIPS 2
+
 // Define the array of leds
 CRGB leds1[NUM_LEDS1];
 CRGB leds2[NUM_LEDS2];
+
+CRGB* ledStrips[NUM_LEDSTRIPS];
+
+uint16_t ledStripSizes[NUM_LEDSTRIPS];
 
 CRGB currentColor;
 CRGB targetColor;
@@ -41,7 +47,7 @@ uint8_t targetMode;
 #define MODE_WAVES 0x03
 #define MODE_SPARKLE 0x04
 
-CRGB LIGHT_COLOR = CRGB(255, 240, 220);
+CRGB LIGHT_COLOR = CRGB(150, 190, 255);
 
 
 // Dont put this on the stack:
@@ -53,9 +59,33 @@ uint8_t buffer[RH_NRF24_MAX_MESSAGE_LEN];
 
 long scrollSpeed_ms_per_step = 20;
 
+boolean enableParticles = false;
 
 unsigned long currentTime_ms = 0;
 long ledCoolDown_ms = 0;
+
+#define SUBPOS_RESOLUTION 10000
+
+struct Particle {
+  boolean active = false;
+  uint8_t ledStrip;
+  uint16_t pos;  
+  CRGB color = CRGB::White;
+  int numTargets = 0;
+  int currentTarget = 0;
+  CRGB *targetColors = NULL;
+  long *colorFadeTimes_ms = NULL;    
+  long currentFadeDuration_ms = 0;
+  long age_ms = 0;
+  
+  int velocity = 0; // Sub pos changes per ms.
+  int subPos = 0; // +/- SUBPOS_RESOLUTION
+};
+
+
+#define NUM_PARTICLES 32
+
+Particle particles[NUM_PARTICLES];
 
 
 CRGB randomColor() {
@@ -69,8 +99,16 @@ CRGB randomColor() {
 
 void setup() 
 {
+
   Serial.begin(9600);
   Serial.println("Lednode starting up...");
+  Serial.flush();
+
+  ledStrips[0] = &leds1[0];
+  ledStrips[1] = &leds2[0];
+  ledStripSizes[0] = NUM_LEDS1;
+  ledStripSizes[1] = NUM_LEDS2;
+
   
   if (!manager.init()) {
     Serial.println("Radio init failed");
@@ -145,6 +183,9 @@ void handleMessage(uint8_t buffer[], uint8_t length) {
     case MESSAGE_SET_MODE:
       if (!checkParametrs(messageType, length, 1)) return;
       targetMode = params[0];
+      Serial.print("Mode changed to ");    
+      Serial.println(targetMode);    
+
       break;
     
     default:
@@ -201,21 +242,125 @@ CRGB mixColor(CRGB from, CRGB to, int amount) {
 
 void updateSolidColorMode(long deltaTime_ms, CRGB color) {
 
-    // Mix towards target  
+    // Set to target  
     int mixAmount = 200;
     for (int i = 0; i < NUM_LEDS1; i++) {
-        leds1[i] = mixColor(leds1[i], color, mixAmount);
+        leds1[i] = color;
     }
     for (int i = 0; i < NUM_LEDS2; i++) {
-        leds2[i] = mixColor(leds2[i], color, mixAmount);
+        leds2[i] = color;
     }
 
 }
 
 
+int findEmptyParticle() {
+  // First try to find inactive
+  for (int i = 0; i < NUM_PARTICLES; i++) {
+     if (!particles[i].active) return i;
+  } 
+  
+  // If not found, take oldest
+  long oldestAge = -1;
+  int oldestParticle = 0;
+  for (int i = 0; i < NUM_PARTICLES; i++) {
+     if (particles[i].age_ms > oldestAge) {
+       oldestParticle = i;
+       oldestAge = particles[i].age_ms;
+     }
+  } 
+  
+  return oldestParticle;
+}
+
+int addParticle(int ledStrip, int pos, int velocity, CRGB *colors, long *times, int num) {
+  int i = findEmptyParticle();
+  particles[i].active = true;
+  
+  particles[i].ledStrip = ledStrip;
+  particles[i].pos = pos;
+  particles[i].velocity = velocity;
+  particles[i].subPos = 0;
+  particles[i].color = colors[0];
+  particles[i].targetColors = colors;
+  particles[i].colorFadeTimes_ms = times;
+  particles[i].numTargets = num;
+  particles[i].currentFadeDuration_ms = 0;
+  particles[i].age_ms = 0;
+  
+  return i;  
+}
+
+void updateParticles(long deltaTime_ms) {
+  if (!enableParticles) return;
+  
+  for (int i = 0; i < NUM_PARTICLES; i++) { 
+    if (particles[i].active) {
+      // Update color fade 
+      int target = particles[i].currentTarget;
+      if (target >= particles[i].numTargets) particles[i].active = false;
+      else {
+        // Update age
+        particles[i].age_ms += deltaTime_ms;
+        
+        // Calculate color
+        CRGB sourceColor;
+        if (particles[i].currentTarget <= 0) sourceColor =  particles[i].color;
+        else sourceColor = particles[i].targetColors[target - 1];
+        CRGB targetColor = particles[i].targetColors[target];
+        particles[i].color = mixColor(sourceColor, targetColor, (1024L * (particles[i].colorFadeTimes_ms[target] - particles[i].currentFadeDuration_ms)) / particles[i].colorFadeTimes_ms[target]);
+        
+        // Update ledstrip
+        ledStrips[particles[i].ledStrip][particles[i].pos] = particles[i].color;
+
+        // Update fade
+        particles[i].currentFadeDuration_ms += deltaTime_ms;
+        long phaseDuration = particles[i].colorFadeTimes_ms[target];
+        if (particles[i].currentFadeDuration_ms >= phaseDuration) {
+          // Move to next phase
+          particles[i].currentFadeDuration_ms = 0;
+          particles[i].currentTarget++;
+          if (particles[i].currentTarget >= particles[i].numTargets) particles[i].active = false;
+        } 
+
+/*      
+        // Update pos
+        particles[i].subPos += particles[i].velocity * deltaTime_ms;
+        if (particles[i].subPos >= SUBPOS_RESOLUTION) {
+          particles[i].pos++;
+          particles[i].subPos = 0;
+        }
+        else if (particles[i].subPos <= -SUBPOS_RESOLUTION) {
+          particles[i].pos--;
+          particles[i].subPos = 0;
+        }
+
+        // Kill if it went outide
+        if (particles[i].pos >= ledStripSizes[particles[i].ledStrip]) particles[i].active = false;
+        if (particles[i].pos < 0) particles[i].active = false;
+        // if (particles[i].pos >= ledStripSizes[particles[i].ledStrip]) particles[i].pos = 0;
+        // else if (particles[i].pos < 0]) particles[i].pos =  ledStripSizes[particles[i].ledStrip] - 1;
+*/        
+      }    
+    }
+  }
+  
+  
+}
+
+
+long waveSpeed = 16;
+long wavePos = 0;
 void updateWaveMode(long deltaTime_ms) {
+    // Calculate source colors
+    wavePos += deltaTime_ms * waveSpeed;
+    if (wavePos > 32767) wavePos -= 32767;
+    int pos = sin16(wavePos * waveSpeed) / (65535 / 512) + 512;
+    CRGB sourceColor1 = mixColor(targetColor, CRGB::Black, pos);
+    CRGB sourceColor2 = mixColor(targetColor, CRGB::Black, 1024 - pos);
+  
     // Bleed color down the line  
-    int bleedAmount = 200;
+    int bleedAmount = 300;
     for (int i = NUM_LEDS1 - 1; i > 0; i--) {
         leds1[i] += mixColor(leds1[i], leds1[i - 1], bleedAmount);
     }
@@ -224,12 +369,8 @@ void updateWaveMode(long deltaTime_ms) {
     }
     
     // Bleed current color to first ones
-    leds1[0] = mixColor(leds1[0], currentColor, bleedAmount);
-    leds2[NUM_LEDS2 - 1] = mixColor(leds2[NUM_LEDS2 - 1], currentColor, bleedAmount);
-
-    // Dampen source color
-    int colorDampening = 2;
-    currentColor.fadeToBlackBy(colorDampening);
+    leds1[0] = mixColor(leds1[0], sourceColor1, bleedAmount);
+    leds2[NUM_LEDS2 - 1] = mixColor(leds2[NUM_LEDS2 - 1], sourceColor2, bleedAmount);
 
     // Dampen colors
     for (int i = 0; i < NUM_LEDS1; i++) {
@@ -238,25 +379,27 @@ void updateWaveMode(long deltaTime_ms) {
     for (int i = 0; i < NUM_LEDS2; i++) {
         leds2[i].fadeToBlackBy(1);
     }
-
-    // Reset colors if it goes to black
-    if (currentColor.r == 0 && 
-        currentColor.g == 0 && 
-        currentColor.b == 0) {
-       currentColor = targetColor;
-    }
 }
 
 
 long sparkleIntervall_ms = 200;
 long timeToNextSparkle = 1;
+CRGB GRADIENT_FIRE_COLORS[] = {CRGB(255, 240, 150), CRGB(220, 180, 0), CRGB(200, 0, 0), CRGB(30, 0, 50), CRGB(0, 0, 60), CRGB(0, 0, 0)};
+long GRADIENT_FIRE_DURATIONS[] = {500, 1000, 500, 2000, 100, 3000};
 void updateSparkleMode(long deltaTime_ms) {
 
     // Check if it is time to sparkle
     timeToNextSparkle -= deltaTime_ms;
     while (timeToNextSparkle <= 0) {
       timeToNextSparkle += sparkleIntervall_ms;
+      int ledStrip = random(NUM_LEDSTRIPS);
+      int pos = random(ledStripSizes[ledStrip]);
+      int velocity = random(400) -200;
+      
+      addParticle(ledStrip, pos, velocity, GRADIENT_FIRE_COLORS, GRADIENT_FIRE_DURATIONS, 6);
 
+      
+/*
       // Light random pixel       
       int array = random(2);
       if (array == 0) {
@@ -265,6 +408,7 @@ void updateSparkleMode(long deltaTime_ms) {
       else {
         leds2[random(NUM_LEDS2)] = targetColor;
       }           
+*/
     }
   
     // Fade to black
@@ -285,22 +429,27 @@ void updateLeds(long deltaTime_ms) {
 
     switch (targetMode) {
       case MODE_OFF:
+        enableParticles = false;
         updateSolidColorMode(ledCoolDown_ms, CRGB::Black);
         break;
         
       case MODE_LIGHT:
+        enableParticles = false;
         updateSolidColorMode(ledCoolDown_ms, LIGHT_COLOR);
         break;
         
       case MODE_COLOR:
+        enableParticles = false;
         updateSolidColorMode(ledCoolDown_ms, targetColor);
         break;
         
       case MODE_WAVES:
+        enableParticles = true;
         updateWaveMode(ledCoolDown_ms);
         break;
         
       case MODE_SPARKLE:
+        enableParticles = true;
         updateSparkleMode(ledCoolDown_ms);
         break;
         
@@ -357,6 +506,7 @@ void loop() {
   updateRadio(deltaTime_ms);  
   updateLeds(deltaTime_ms);  
 
+  updateParticles(deltaTime_ms); 
   
 }
 
