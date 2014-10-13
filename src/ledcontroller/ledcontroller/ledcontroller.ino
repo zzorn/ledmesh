@@ -2,6 +2,9 @@
 #include <RHDatagram.h>
 #include <RH_NRF24.h>
 #include <SPI.h>
+#include <LiquidCrystal.h>
+#include <FastLED.h>
+ 
 
 #include "FastLED.h"
 
@@ -12,15 +15,38 @@
 // Prints extra many things
 #define DEBUG_MODE true
 
+// Pin assignments
+#define LCD_RS_PIN        2
+#define LCD_ENABLE_PIN    3
+#define LCD_DATA4_PIN     4
+#define LCD_DATA5_PIN     5
+#define LCD_DATA6_PIN     6
+#define LCD_DATA7_PIN     7
+#define ROTARY_A_PIN      8 
+#define ROTARY_B_PIN      9
+#define LCD_BACKLIGHT_PIN 10
+#define RADIO_MOSI_PIN    11
+#define RADIO_MISO_PIN    12
+#define RADIO_SCK_PIN     13    
+#define RADIO_CSN_PIN     A0
+#define RADIO_CE_PIN      A1 
+#define ROTARY_PUSH_PIN   A2
+#define STATUS_LED_PIN    A3
+#define EXTRA_IO_1_PIN    A4
+#define EXTRA_IO_2_PIN    A5
+#define SHAKE_PIN         A6
+#define LIGHTLEVEL_PIN    A7
+
+
+
+// LCD library
+LiquidCrystal lcd(LCD_RS_PIN, LCD_ENABLE_PIN, LCD_DATA4_PIN, LCD_DATA5_PIN, LCD_DATA6_PIN, LCD_DATA7_PIN);
 
 // Singleton instance of the radio driver
-RH_NRF24 driver;
-// RH_NRF24 driver(8, 7);   // For RFM73 on Anarduino Mini
+RH_NRF24 driver(RADIO_CE_PIN, RADIO_CSN_PIN);
 
 // Class to manage message delivery and receipt, using the driver declared above
 RHDatagram manager(driver, SERVER_ADDRESS);
-
-CRGB targetColor;
 
 // Dont put this on the stack:
 uint8_t buffer[RH_NRF24_MAX_MESSAGE_LEN];
@@ -36,10 +62,23 @@ uint8_t buffer[RH_NRF24_MAX_MESSAGE_LEN];
 #define MODE_SPARKLE 0x04
 #define FIRST_MODE MODE_OFF
 #define LAST_MODE MODE_SPARKLE
+const int NUM_MODES = LAST_MODE + 1;
 
+char* MODE_NAMES[NUM_MODES] = {
+  "Off",
+  "Light",
+  "Color",
+  "Waves",
+  "Sparkle",
+};
+
+#define NUM_LEDS 1
+CRGB previewLeds[NUM_LEDS];
+
+CRGB targetColor;
+int currentHue = 0;
 int currentMode = FIRST_MODE;
 
-#define MODE_BUTTON_PIN A1
 
 unsigned long currentTime_ms = 0;
 
@@ -54,19 +93,47 @@ CRGB randomColor() {
 
 
 void setup() {
-  Serial.begin(9600);
-  
-  if (!manager.init()) {
-    Serial.println("init failed");
-  }  
-  // Defaults after init are 2.402 GHz (channel 2), 2Mbps, 0dBm
-    
-   targetColor = randomColor(); 
- 
-   pinMode(A0, INPUT);  
-   pinMode(MODE_BUTTON_PIN, INPUT);
-   digitalWrite(MODE_BUTTON_PIN, HIGH);
+   /*
+   pinMode(LCD_RS_PIN, OUTPUT);
+   pinMode(LCD_ENABLE_PIN, OUTPUT);
+   pinMode(LCD_DATA4_PIN, OUTPUT);
+   pinMode(LCD_DATA5_PIN, OUTPUT);
+   pinMode(LCD_DATA6_PIN, OUTPUT);
+   pinMode(LCD_DATA7_PIN, OUTPUT);
+   */
+   pinMode(LCD_BACKLIGHT_PIN, OUTPUT);
 
+   pinMode(STATUS_LED_PIN, OUTPUT);
+
+   pinMode(EXTRA_IO_1_PIN, INPUT);
+   pinMode(EXTRA_IO_2_PIN, INPUT);
+
+   pinMode(ROTARY_A_PIN, INPUT);  
+   pinMode(ROTARY_B_PIN, INPUT);  
+   pinMode(ROTARY_PUSH_PIN, INPUT);
+
+   pinMode(SHAKE_PIN, INPUT);
+   pinMode(LIGHTLEVEL_PIN, INPUT);  
+
+
+  Serial.begin(9600);
+
+  lcd.begin(16, 2);
+  lcd.print("Light Controller");
+
+  FastLED.addLeds<NEOPIXEL, STATUS_LED_PIN>(previewLeds, NUM_LEDS);
+
+  // Defaults after init are 2.402 GHz (channel 2), 2Mbps, 0dBm
+  if (!manager.init()) {
+    Serial.println("Radio initialization failed");
+    lcd.print("Radio init fail");    
+  }
+    
+  targetColor = randomColor(); 
+
+  analogWrite(LCD_BACKLIGHT_PIN, 0);
+
+ 
 }
 
 
@@ -117,7 +184,7 @@ void updateRadio(long deltaTime_ms) {
     if (manager.recvfrom(buffer, &len, &from)) {  
        handleMessage(buffer, len);      
     }
-  }  
+  } 
 }
 
 
@@ -191,7 +258,6 @@ void sendMessage(uint8_t recipient, uint8_t messageType, uint8_t parameters[], i
   // Print if in debug mode
   if (DEBUG_MODE) {
     debugMessage("Sending message", messageType, parameters, paramLength);
-    Serial.print("Sending message of type ");
   }
 }
   
@@ -200,9 +266,9 @@ void sendMessage(uint8_t recipient, uint8_t messageType, uint8_t parameters[], i
 
 void sendSetColor(CRGB color) {
   uint8_t rgb[3];
-  rgb[0] = color[0];
-  rgb[1] = color[1];
-  rgb[2] = color[2];
+  rgb[0] = color.r;
+  rgb[1] = color.b; // TODO: Temporary fix, it seems the lednode mixes blue and green?
+  rgb[2] = color.g;
   
   sendMessage(RH_BROADCAST_ADDRESS, MESSAGE_SET_COLOR, rgb, 3);  
 }
@@ -214,19 +280,99 @@ void sendChangeMode(int currentMode) {
   sendMessage(RH_BROADCAST_ADDRESS, MESSAGE_SET_MODE, mode, 1);  
 }
 
-
-
-int oldHue;
-void readHueWheel(long deltaTime_ms) {
-  int hue = analogRead(A0) / 4;
-
-  if (hue != oldHue) {
-    oldHue = hue;
-    targetColor.setHue(hue);
-    
-    sendSetColor(targetColor);
-  }  
+void previewColor(CRGB color) {
+  // Send the color to the WS2812B led on pin STATUS_LED_PIN.
+  previewLeds[0] = color; 
+  FastLED.show(); 
 }
+
+void refreshLcd() {
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print(MODE_NAMES[currentMode]);
+  lcd.setCursor(0, 1);
+  lcd.print("Hue = ");  
+  lcd.print(currentHue);  
+}
+
+
+void setMode(int mode) {
+  currentMode = mode;  
+  previewColor(CRGB::Black);
+  refreshLcd();
+  sendChangeMode(currentMode); 
+}
+
+void setHue(int hue) {
+    if (currentHue != hue) {
+      currentHue = hue;
+      targetColor.setHue(currentHue);
+
+      previewColor(targetColor);
+      refreshLcd();
+      sendSetColor(targetColor);
+    }
+}
+
+ 
+
+// TODO: Extract to own library
+int encoderPinALast = LOW;
+long encoderLastChange = 0;
+const long ACCELERATION_RESET = 500000;
+const long NO_ACCELERATION  = 100000;
+const long MAX_ACCELERATION = 10000;
+const long MAX_ACCELERATION_FACTOR = 200;
+const long ACCELERATION_DAMPENING = 6;
+long averageAcceleration = 0;
+long readEncoder() {
+   long delta = 0; 
+   int aPinStatus = digitalRead(ROTARY_A_PIN);
+   if ((encoderPinALast == LOW) && (aPinStatus == HIGH)) {
+     if (digitalRead(ROTARY_B_PIN) == LOW) {
+       delta = -1;
+     } else {
+       delta = 1;
+     }
+
+     // Apply acceleration
+     long now = micros();
+     long timeSinceLastChange = now - encoderLastChange;
+     if (timeSinceLastChange > 0) {
+       
+        if (timeSinceLastChange > ACCELERATION_RESET) averageAcceleration = 1;
+       
+        long factor = (MAX_ACCELERATION_FACTOR * (timeSinceLastChange - NO_ACCELERATION)) / (MAX_ACCELERATION - NO_ACCELERATION);
+        if (factor > MAX_ACCELERATION_FACTOR) factor = MAX_ACCELERATION_FACTOR;
+        else if (factor < 1) factor = 1;
+        
+        averageAcceleration = (averageAcceleration * (ACCELERATION_DAMPENING - 1) + factor) / ACCELERATION_DAMPENING;
+        averageAcceleration = max(1, averageAcceleration);
+        
+        delta = delta * averageAcceleration;
+     }
+     encoderLastChange = now;
+     
+   } 
+   encoderPinALast = aPinStatus;
+   return delta;
+}
+
+
+void readHueWheel(long deltaTime_ms) {
+  
+  long hueChange = readEncoder();
+
+  long hue = currentHue + hueChange;
+
+  // Wrap
+  hue %= 256;
+  if (hue < 0) hue += 256;
+
+  setHue(hue);
+}
+
+
 
 
 boolean modeButtonPressed = false;
@@ -239,21 +385,23 @@ void readModeChange(long deltaTime_ms) {
   if (modeButtonCooldown_ms <= 0) {
     modeButtonCooldown_ms = 0;
     
-    boolean pressedNow = (digitalRead(MODE_BUTTON_PIN) == LOW);
+    boolean pressedNow = (digitalRead(ROTARY_PUSH_PIN) == LOW);
   
     if (pressedNow != modeButtonPressed) {
       modeButtonCooldown_ms = modeButtonHysteresis_ms;
       modeButtonPressed = pressedNow;
       
       if (!modeButtonPressed) {
-        currentMode++;
-        if (currentMode > LAST_MODE) currentMode = FIRST_MODE;
-        
-        sendChangeMode(currentMode);
+        if (currentMode >= LAST_MODE) setMode(FIRST_MODE);
+        else setMode(currentMode + 1);        
       }
     }    
   }  
 }
+
+
+
+
 
 void readInputs(long deltaTime_ms) {
   readHueWheel(deltaTime_ms);
