@@ -42969,7 +42969,6 @@ EC12E series with push-on switch</description>
 <part name="SUPPLY40" library="supply2" deviceset="GND" device=""/>
 <part name="C10" library="rcl" deviceset="C-EU" device="C0805" value="100 nF"/>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
-<part name="C11" library="rcl" deviceset="CPOL-EU" device="E2.5-6" value="100 uF"/>
 <part name="SUPPLY42" library="supply2" deviceset="GND" device=""/>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 <part name="3.3V_REGULATOR" library="burr-brown" deviceset="REG1117" device="" value="AMS1117-3.3"/>
@@ -43048,7 +43047,6 @@ Check if the yellow-green smd leds work with 3.3V and a 220 Ohm resistor.</text>
 <instance part="SUPPLY40" gate="GND" x="17.78" y="-93.98"/>
 <instance part="C10" gate="G$1" x="17.78" y="-86.36"/>
 <instance part="+3V1" gate="G$1" x="17.78" y="-76.2"/>
-<instance part="C11" gate="G$1" x="30.48" y="-86.36"/>
 <instance part="SUPPLY42" gate="GND" x="35.56" y="53.34"/>
 <instance part="+3V2" gate="G$1" x="-38.1" y="58.42"/>
 <instance part="3.3V_REGULATOR" gate="G$1" x="2.54" y="109.22"/>
@@ -43131,9 +43129,6 @@ Check if the yellow-green smd leds work with 3.3V and a 220 Ohm resistor.</text>
 <segment>
 <pinref part="SUPPLY40" gate="GND" pin="GND"/>
 <pinref part="C10" gate="G$1" pin="2"/>
-<pinref part="C11" gate="G$1" pin="-"/>
-<wire x1="30.48" y1="-91.44" x2="17.78" y2="-91.44" width="0.1524" layer="91"/>
-<junction x="17.78" y="-91.44"/>
 </segment>
 <segment>
 <pinref part="RADIO" gate="G$1" pin="1"/>
@@ -43364,10 +43359,6 @@ Check if the yellow-green smd leds work with 3.3V and a 220 Ohm resistor.</text>
 <pinref part="C10" gate="G$1" pin="1"/>
 <pinref part="+3V1" gate="G$1" pin="+3V3"/>
 <wire x1="17.78" y1="-78.74" x2="17.78" y2="-83.82" width="0.1524" layer="91"/>
-<junction x="17.78" y="-83.82"/>
-<pinref part="C11" gate="G$1" pin="+"/>
-<wire x1="30.48" y1="-83.82" x2="17.78" y2="-83.82" width="0.1524" layer="91"/>
-<junction x="17.78" y="-83.82"/>
 </segment>
 <segment>
 <pinref part="RADIO" gate="G$1" pin="2"/>
