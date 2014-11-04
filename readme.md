@@ -1,25 +1,22 @@
-Ledmess
+Ledmesh
 =======
 
 Overview
 --------
 
-Mesh networked nodes controlling LED light strips, LED spotlights, beepers, sensors, and other things.
+Mesh networked nodes controlling LED light strips, LED spotlights, sensors, and other things.
 
-The network is wire based, although wireless support might be a later feature.
-It tentatively uses the one wire protocol (three core-wires connect nodes, carrying ground, +12V and data).
+The network uses wireless radio modules to communicate between nodes.
 
-Ledmess can be used to create coherent led lighting effects in a space (e.g. light waves flowing around walls), 
+Ledmesh can be used to create coherent led lighting effects in a space (e.g. light waves flowing around walls), 
 as well as for controlling 12V lighting (e.g. led spotlights).
 
-Ledmess can also be used as an information radiator, connecting some nodes up to computers or suitable sensors, 
+Ledmesh can also be used as an information radiator, connecting some nodes up to computers or suitable sensors, 
 and sending out light waves to nearby nodes or doing light effect changes for the whole network on different events.
 
-Ledmess needs configuration after installation, to tell nodes their internal connections, sensors to use for activating different modes or sending waves, and so on.
+Ledmesh needs configuration after installation, to tell nodes their relative locations, sensors to use for activating different modes or sending waves, and so on.
 
 
-TODO: If 5V led strips are to be used as well, we'd need to carry 5V also, which requires a 4 Core connection wire (or 3 core + signal wire).
-It would be nice to have a 5V rail as well, as the IC:s and some outputs use it, and ATX powers provide it.
 
 
 
@@ -34,7 +31,7 @@ Waves could leave the leds at zero after they pass, or they could leave them at 
 
 Waves can be used to create a lot of different effects (even global fade ins or outs).  If there are some ideas for effect types that are not possible to do with waves, those might be added later.
 
-Single outputs, like led spotlights or beepers, could be treated like a led strip of length one (or some other length, if the spotlights are arranged in a row).
+Single outputs, like led spotlights, could be treated like a led strip of length one (or some other length, if the spotlights are arranged in a row).
 
 
 Node States
@@ -69,17 +66,13 @@ for some darker and slower night illumination, a party mode, and a few different
 Node types
 ----------
 
-There are a few different types of nodes:
+There are two different types of nodes:
 
 * Led Node
-  * Controls zero or more LED strips, LED lights, buzzers, etc.  Could also have some extra controls that can be connected to other things.  Maybe servo / motor support as well.
-  * Has some builtin sensors such as light level, as well as pins that can be connected to external sensors
-  * Has a number of connectors that can be used to connect it to other nodes.
-* Power Node
-  * This provides power to the rest of the network.  It could have a soft off switch wich activates a global shutdown signal over a number of seconds before cutting the power, 
-    and decreases a global startup signal over some seconds when the power is toggled on again.
-  * Might also contain support for wireless control (RF).  
-  * Might also contain support for bluetooth control (for control from android app)
+  * Controls zero or more LED strips, LED lights, etc.  Also has two extra I/O pins.
+  * Has locations for sensor modules such as PIR (motion detector) and sound.
+  * Has builtin light level sensor.
+  * Has location for a radio communication module.
 * Control Node
   * Contains a character LCD screen and turn wheels (and possibly a color / color gradient preview LED) for configuring the network.  It allows:
      * Configuring the length of led strips connected to different nodes (needs to be done once after installation).  
@@ -96,13 +89,10 @@ There are a few different types of nodes:
         * Slowness / quickness of state change = change inertia
         * Whether this state should be available on all nodes, or only a selected subset (always non-active on other nodes)  [Is this needed?  Maybe not]
      * The default screen allows setting various selected global signals, and selecting the current mode(s).
-  * Also a USB connection to computer, and some serial based protocol to provide updates to signal states, as well as communicate states from the Ledmess network.  The protocol could also contain commands for configuring LedMess.
+  * Also a USB connection to computer, and some serial based protocol to provide updates to signal states, as well as communicate states from the Ledmess network.  The protocol could also contain commands for configuring LedMesh.
   * Might also contain support for wireless control (RF).
   * Might also contain support for bluetooth control (for control from android app)
 
-The control and power node could use the same PCB, so you could have both in the same device, or have separate control / power nodes.
-
-In general, one Ledmess network should have one power node only, with enough amps to drive the whole thing.  If a large network is needed, wireless connections (or maybe optical ones) could be used to connect nodes without connecting them electrically.
 
 
 Control and configuration application
