@@ -73,7 +73,8 @@ There are two different types of nodes:
   * Has locations for sensor modules such as PIR (motion detector) and sound.
   * Has builtin light level sensor.
   * Has location for a radio communication module.
-* Control Node
+
+* Remote Controller
   * Contains a character LCD screen and turn wheels (and possibly a color / color gradient preview LED) for configuring the network.  It allows:
      * Configuring the length of led strips connected to different nodes (needs to be done once after installation).  
      * Defining fixed signals for different nodes (e.g. height above floor, or x/y coordinate), which can be used in effects.
@@ -89,9 +90,9 @@ There are two different types of nodes:
         * Slowness / quickness of state change = change inertia
         * Whether this state should be available on all nodes, or only a selected subset (always non-active on other nodes)  [Is this needed?  Maybe not]
      * The default screen allows setting various selected global signals, and selecting the current mode(s).
-  * Also a USB connection to computer, and some serial based protocol to provide updates to signal states, as well as communicate states from the Ledmess network.  The protocol could also contain commands for configuring LedMesh.
-  * Might also contain support for wireless control (RF).
+  * Could also have a USB connection to computer, and some serial based protocol to provide updates to signal states, as well as communicate states from the Ledmess network.  The protocol could also contain commands for configuring LedMesh.
   * Might also contain support for bluetooth control (for control from android app)
+  * Might support an ethernet connector as well.
 
 
 
@@ -100,7 +101,7 @@ Control and configuration application
 
 To be written in Java, as that allows easy porting to both android and PC.
 
-Maybe skip a LCD panel equipped control node and require use of the application for configuring Ledmess?  Although builtin hardware control would be nice to have.
+The software on the remote controller will probably be more limited, but it would be nice to be able to do all configuration from it if needed.
 
 
 Builtin Signals
