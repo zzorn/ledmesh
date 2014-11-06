@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE eagle SYSTEM "eagle.dtd">
+<eagle version="6.5.0">
+<drawing>
+<settings>
+<setting alwaysvectorfont="no"/>
+<setting verticaltext="up"/>
+</settings>
+<grid distance="0.1" unitdist="inch" unit="inch" style="lines" multiple="1" display="yes" altdistance="0.01" altunitdist="inch" altunit="inch"/>
+<layers>
+<layer number="1" name="Top" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="16" name="Bottom" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="17" name="Pads" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="18" name="Vias" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="19" name="Unrouted" color="6" fill="1" visible="yes" active="yes"/>
+<layer number="20" name="Dimension" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="21" name="tPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="22" name="bPlace" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="23" name="tOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="24" name="bOrigins" color="15" fill="1" visible="yes" active="yes"/>
+<layer number="25" name="tNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="26" name="bNames" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="27" name="tValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="28" name="bValues" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="29" name="tStop" color="7" fill="3" visible="no" active="yes"/>
+<layer number="30" name="bStop" color="7" fill="6" visible="no" active="yes"/>
+<layer number="31" name="tCream" color="7" fill="4" visible="no" active="yes"/>
+<layer number="32" name="bCream" color="7" fill="5" visible="no" active="yes"/>
+<layer number="33" name="tFinish" color="6" fill="3" visible="no" active="yes"/>
+<layer number="34" name="bFinish" color="6" fill="6" visible="no" active="yes"/>
+<layer number="35" name="tGlue" color="7" fill="4" visible="no" active="yes"/>
+<layer number="36" name="bGlue" color="7" fill="5" visible="no" active="yes"/>
+<layer number="37" name="tTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="38" name="bTest" color="7" fill="1" visible="no" active="yes"/>
+<layer number="39" name="tKeepout" color="4" fill="11" visible="yes" active="yes"/>
+<layer number="40" name="bKeepout" color="1" fill="11" visible="yes" active="yes"/>
+<layer number="41" name="tRestrict" color="4" fill="10" visible="yes" active="yes"/>
+<layer number="42" name="bRestrict" color="1" fill="10" visible="yes" active="yes"/>
+<layer number="43" name="vRestrict" color="2" fill="10" visible="yes" active="yes"/>
+<layer number="44" name="Drills" color="7" fill="1" visible="no" active="yes"/>
+<layer number="45" name="Holes" color="7" fill="1" visible="no" active="yes"/>
+<layer number="46" name="Milling" color="3" fill="1" visible="no" active="yes"/>
+<layer number="47" name="Measures" color="7" fill="1" visible="no" active="yes"/>
+<layer number="48" name="Document" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="49" name="Reference" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="51" name="tDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="52" name="bDocu" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="91" name="Nets" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="92" name="Busses" color="1" fill="1" visible="yes" active="yes"/>
+<layer number="93" name="Pins" color="2" fill="1" visible="yes" active="yes"/>
+<layer number="94" name="Symbols" color="4" fill="1" visible="yes" active="yes"/>
+<layer number="95" name="Names" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="96" name="Values" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="97" name="Info" color="7" fill="1" visible="yes" active="yes"/>
+<layer number="98" name="Guide" color="6" fill="1" visible="yes" active="yes"/>
+</layers>
+<library>
+<packages>
+<package name="NRF24L01_MODULE">
+<pad name="P$1" x="0" y="0" drill="1.2" diameter="1.9304" shape="octagon" rot="R180"/>
+<pad name="P$2" x="0" y="2.54" drill="1.2" diameter="1.9304" shape="octagon" rot="R90"/>
+<pad name="P$3" x="2.54" y="0" drill="1.2" diameter="1.9304" shape="octagon" rot="R90"/>
+<pad name="P$4" x="2.54" y="2.54" drill="1.2" diameter="1.9304" shape="octagon" rot="R90"/>
+<pad name="P$5" x="5.08" y="0" drill="1.2" diameter="1.9304" shape="octagon" rot="R90"/>
+<pad name="P$6" x="5.08" y="2.54" drill="1.2" diameter="1.9304" shape="octagon" rot="R90"/>
+<pad name="P$7" x="7.62" y="0" drill="1.2" diameter="1.9304" shape="octagon" rot="R90"/>
+<pad name="P$8" x="7.62" y="2.54" drill="1.2" diameter="1.9304" shape="octagon" rot="R90"/>
+<wire x1="-1.27" y1="-1.27" x2="-1.27" y2="1.27" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="1.27" x2="-1.27" y2="3.81" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="3.81" x2="8.89" y2="3.81" width="0.127" layer="21"/>
+<wire x1="8.89" y1="3.81" x2="8.89" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="8.89" y1="-1.27" x2="1.27" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="1.27" y1="-1.27" x2="-1.27" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="1.27" y1="-1.27" x2="1.27" y2="1.27" width="0.127" layer="21"/>
+<wire x1="1.27" y1="1.27" x2="-1.27" y2="1.27" width="0.127" layer="21"/>
+<text x="5.5" y="-5.5" size="1.016" layer="27" font="vector" rot="SR0" align="center">&gt;VALUE</text>
+<text x="5.5" y="-3.5" size="1.4224" layer="25" font="vector" ratio="12" rot="SR0" align="center">&gt;NAME</text>
+<wire x1="-2" y1="-2" x2="-2" y2="27" width="0.127" layer="51"/>
+<wire x1="-2" y1="27" x2="13" y2="27" width="0.127" layer="51"/>
+<wire x1="13" y1="27" x2="13" y2="-2" width="0.127" layer="51"/>
+<wire x1="13" y1="-2" x2="-2" y2="-2" width="0.127" layer="51"/>
+<circle x="5.5" y="17" radius="1" width="1.016" layer="51"/>
+<wire x1="3.5" y1="19" x2="7.5" y2="19" width="1.016" layer="51" curve="-90"/>
+<wire x1="1.5" y1="21" x2="9.5" y2="21" width="1.016" layer="51" curve="-90"/>
+<wire x1="-0.5" y1="23" x2="11.5" y2="23" width="1.016" layer="51" curve="-90"/>
+</package>
+<package name="BLUETOOTH_MODULE">
+<pad name="P$1" x="0" y="0" drill="1.2" diameter="1.9304" shape="octagon"/>
+<pad name="P$2" x="2.54" y="0" drill="1.2" diameter="1.9304" shape="octagon"/>
+<pad name="P$3" x="5.08" y="0" drill="1.2" diameter="1.9304" shape="octagon"/>
+<pad name="P$4" x="7.62" y="0" drill="1.2" diameter="1.9304" shape="octagon"/>
+<pad name="P$5" x="10.16" y="0" drill="1.2" diameter="1.9304" shape="octagon"/>
+<pad name="P$6" x="12.7" y="0" drill="1.2" diameter="1.9304" shape="octagon"/>
+<wire x1="-1.27" y1="1.27" x2="1.27" y2="1.27" width="0.127" layer="21"/>
+<wire x1="1.27" y1="1.27" x2="13.97" y2="1.27" width="0.127" layer="21"/>
+<wire x1="13.97" y1="1.27" x2="13.97" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="13.97" y1="-1.27" x2="1.27" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="1.27" y1="-1.27" x2="-1.27" y2="-1.27" width="0.127" layer="21"/>
+<wire x1="-1.27" y1="-1.27" x2="-1.27" y2="1.27" width="0.127" layer="21"/>
+<wire x1="1.27" y1="1.27" x2="1.27" y2="-1.27" width="0.127" layer="21"/>
+<text x="6.35" y="-3.175" size="1.4224" layer="25" font="vector" ratio="12" align="center">&gt;NAME</text>
+<text x="6.35" y="-5.08" size="1.016" layer="27" font="vector" align="center">&gt;VALUE</text>
+<wire x1="-1.625" y1="-1.625" x2="14.375" y2="-1.625" width="0.127" layer="51"/>
+<wire x1="14.375" y1="-1.625" x2="14.375" y2="34.375" width="0.127" layer="51"/>
+<wire x1="14.375" y1="34.375" x2="-1.625" y2="34.375" width="0.127" layer="51"/>
+<wire x1="-1.625" y1="34.375" x2="-1.625" y2="-1.625" width="0.127" layer="51"/>
+<wire x1="12.7" y1="29.21" x2="12.7" y2="33.02" width="0.8128" layer="51"/>
+<wire x1="12.7" y1="33.02" x2="10.795" y2="33.02" width="0.8128" layer="51"/>
+<wire x1="10.795" y1="33.02" x2="10.795" y2="30.48" width="0.8128" layer="51"/>
+<wire x1="10.795" y1="30.48" x2="8.89" y2="30.48" width="0.8128" layer="51"/>
+<wire x1="8.89" y1="30.48" x2="8.89" y2="33.02" width="0.8128" layer="51"/>
+<wire x1="8.89" y1="33.02" x2="6.985" y2="33.02" width="0.8128" layer="51"/>
+<wire x1="6.985" y1="33.02" x2="6.985" y2="30.48" width="0.8128" layer="51"/>
+<wire x1="6.985" y1="30.48" x2="5.08" y2="30.48" width="0.8128" layer="51"/>
+<wire x1="5.08" y1="30.48" x2="5.08" y2="33.02" width="0.8128" layer="51"/>
+<wire x1="5.08" y1="33.02" x2="3.175" y2="33.02" width="0.8128" layer="51"/>
+<wire x1="3.175" y1="33.02" x2="3.175" y2="30.48" width="0.8128" layer="51"/>
+<wire x1="3.175" y1="30.48" x2="1.27" y2="30.48" width="0.8128" layer="51"/>
+<wire x1="1.27" y1="30.48" x2="1.27" y2="33.02" width="0.8128" layer="51"/>
+<wire x1="1.27" y1="33.02" x2="0" y2="33.02" width="0.8128" layer="51"/>
+<wire x1="11" y1="2" x2="14" y2="2" width="0.127" layer="51"/>
+<wire x1="14" y1="2" x2="14" y2="6" width="0.127" layer="51"/>
+<wire x1="14" y1="6" x2="11" y2="6" width="0.127" layer="51"/>
+<wire x1="11" y1="6" x2="11" y2="2" width="0.127" layer="51"/>
+<circle x="12.5" y="4" radius="1" width="0.127" layer="51"/>
+</package>
+<package name="ETHERNET_ENC28J60_MODULE">
+<pad name="P$1" x="0" y="0" drill="1.2" diameter="1.9304" shape="octagon"/>
+<pad name="P$2" x="0" y="2.54" drill="1.2" diameter="1.9304" shape="octagon"/>
+<pad name="P$3" x="2.54" y="0" drill="1.2" diameter="1.9304" shape="octagon"/>
+<pad name="P$4" x="2.54" y="2.54" drill="1.2" diameter="1.9304" shape="octagon"/>
+<pad name="P$5" x="5.08" y="0" drill="1.2" diameter="1.9304" shape="octagon"/>
+<pad name="P$6" x="5.08" y="2.54" drill="1.2" diameter="1.9304" shape="octagon"/>
+<pad name="P$7" x="7.62" y="0" drill="1.2" diameter="1.9304" shape="octagon"/>
+<pad name="P$8" x="7.62" y="2.54" drill="1.2" diameter="1.9304" shape="octagon"/>
+<pad name="P$9" x="10.16" y="0" drill="1.2" diameter="1.9304" shape="octagon"/>
+<pad name="P$10" x="10.16" y="2.54" drill="1.2" diameter="1.9304" shape="octagon"/>
+<pad name="P$11" x="12.7" y="0" drill="1.2" diameter="1.9304" shape="octagon"/>
+<pad name="P$12" x="12.7" y="2.54" drill="1.2" diameter="1.9304" shape="octagon"/>
+<wire x1="-1.27" y1="3.81" x2="13.97" y2="3.81" width="0.127" layer="22"/>
+<wire x1="13.97" y1="3.81" x2="13.97" y2="-1.27" width="0.127" layer="22"/>
+<wire x1="13.97" y1="-1.27" x2="1.27" y2="-1.27" width="0.127" layer="22"/>
+<wire x1="1.27" y1="-1.27" x2="-1.27" y2="-1.27" width="0.127" layer="22"/>
+<wire x1="-1.27" y1="-1.27" x2="-1.27" y2="1.27" width="0.127" layer="22"/>
+<wire x1="-1.27" y1="1.27" x2="-1.27" y2="3.81" width="0.127" layer="22"/>
+<wire x1="-1.27" y1="1.27" x2="1.27" y2="1.27" width="0.127" layer="22"/>
+<wire x1="1.27" y1="1.27" x2="1.27" y2="-1.27" width="0.127" layer="22"/>
+<wire x1="-10.125" y1="-2" x2="22.875" y2="-2" width="0.127" layer="52"/>
+<wire x1="-10.125" y1="-2" x2="-10.125" y2="48" width="0.127" layer="52"/>
+<wire x1="-10.125" y1="48" x2="22.875" y2="48" width="0.127" layer="51"/>
+<wire x1="22.875" y1="-2" x2="22.875" y2="48" width="0.127" layer="51"/>
+<wire x1="-1.5" y1="47.875" x2="-1.5" y2="26.875" width="0.254" layer="51"/>
+<wire x1="-1.5" y1="26.875" x2="14.5" y2="26.875" width="0.254" layer="51"/>
+<wire x1="14.5" y1="26.875" x2="14.5" y2="47.875" width="0.254" layer="51"/>
+<wire x1="14.5" y1="47.875" x2="-1.5" y2="47.875" width="0.254" layer="51"/>
+<text x="6.5" y="39.875" size="1.27" layer="51" font="vector" align="center">Ethernet
+Connector</text>
+<circle x="-7.75" y="45" radius="1.5" width="0.127" layer="51"/>
+<circle x="-7.75" y="1" radius="1.5" width="0.127" layer="52"/>
+<circle x="20.75" y="1" radius="1.5" width="0.127" layer="52"/>
+<circle x="20.75" y="45" radius="1.5" width="0.127" layer="51"/>
+<text x="6.35" y="-3.175" size="1.4224" layer="26" font="vector" ratio="12" rot="MR0" align="center">&gt;NAME</text>
+<text x="6.35" y="-5.08" size="1.016" layer="28" font="vector" ratio="12" rot="MR0" align="center">&gt;VALUE</text>
+</package>
+</packages>
+<symbols>
+<symbol name="NRF24L01_MODULE">
+<pin name="VCC_3.3V" x="-27.94" y="7.62" visible="pin" length="middle" direction="sup"/>
+<pin name="GND" x="-27.94" y="5.08" visible="pin" length="middle" direction="sup"/>
+<pin name="CSN_CHIP_SELECT_ACTIVE_LOW" x="-27.94" y="2.54" visible="pin" length="middle" direction="in" function="dot"/>
+<pin name="CE_RADIO_ENABLE" x="-27.94" y="-7.62" visible="pin" length="middle" direction="in"/>
+<pin name="MOSI_MASTER_OUT_SLAVE_IN" x="-27.94" y="-2.54" visible="pin" length="middle" direction="in"/>
+<pin name="MISO_MASTER_IN_SLAVE_OUT" x="-27.94" y="-5.08" visible="pin" length="middle" direction="out"/>
+<pin name="SCK_SERIAL_CLOCK" x="-27.94" y="0" visible="pin" length="middle" direction="in" function="clk"/>
+<pin name="IRQ_INTERRUPT_REQUEST_ACTIVE_LOW" x="-27.94" y="-10.16" visible="pin" length="middle" direction="out" function="dot"/>
+<wire x1="-22.86" y1="10.16" x2="-22.86" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="-22.86" y1="-12.7" x2="25.4" y2="-12.7" width="0.254" layer="94"/>
+<wire x1="25.4" y1="-12.7" x2="25.4" y2="10.16" width="0.254" layer="94"/>
+<wire x1="25.4" y1="10.16" x2="-22.86" y2="10.16" width="0.254" layer="94"/>
+<text x="-22.86" y="12.7" size="1.778" layer="94" align="top-left">&gt;NAME</text>
+<text x="-22.86" y="-15.24" size="1.778" layer="94">&gt;VALUE</text>
+</symbol>
+<symbol name="BLUETOOTH_MODULE">
+<pin name="STATE_HIGH_WHEN_CONNECTED_5HZ_WHEN_NOT" x="-33.02" y="-7.62" visible="pin" length="middle" direction="out"/>
+<pin name="RXD_3.3V_MASTER_OUT_MODULE_IN" x="-33.02" y="0" visible="pin" length="middle" direction="in"/>
+<pin name="TXD_3.3V_MASTER_IN_MODULE_OUT" x="-33.02" y="-2.54" visible="pin" length="middle" direction="out"/>
+<pin name="GND" x="-33.02" y="2.54" visible="pin" length="middle" direction="sup"/>
+<pin name="VCC_3.6V_TO_6V" x="-33.02" y="5.08" visible="pin" length="middle" direction="sup"/>
+<pin name="EN_ENABLE_ACTIVE_LOW_HAS_PULLDOWN" x="-33.02" y="-5.08" visible="pin" length="middle" direction="in" function="dot"/>
+<wire x1="-27.94" y1="7.62" x2="-27.94" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="-27.94" y1="-10.16" x2="30.48" y2="-10.16" width="0.254" layer="94"/>
+<wire x1="30.48" y1="-10.16" x2="30.48" y2="7.62" width="0.254" layer="94"/>
+<wire x1="30.48" y1="7.62" x2="-27.94" y2="7.62" width="0.254" layer="94"/>
+<text x="-27.94" y="10.16" size="1.778" layer="94" font="vector" align="top-left">&gt;NAME</text>
+<text x="-27.94" y="-12.7" size="1.778" layer="94" font="vector">&gt;VALUE</text>
+</symbol>
+<symbol name="ETHERNET_MODULE">
+<description>ENC28J60 Ethernet Module.</description>
+<pin name="GND" x="-25.4" y="7.62" visible="pin" length="middle" direction="sup" swaplevel="1"/>
+<pin name="VCC_3.3V" x="-25.4" y="12.7" visible="pin" length="middle" direction="sup"/>
+<pin name="CS_CHIP_SELECT_ACTIVE_LOW" x="-25.4" y="2.54" visible="pin" length="middle" direction="in" function="dot"/>
+<pin name="RST_RESET_ACTIVE_LOW" x="-25.4" y="-7.62" visible="pin" length="middle" direction="in" function="dot"/>
+<pin name="SI_MOSI_MASTER_OUT_SLAVE_IN" x="-25.4" y="-2.54" visible="pin" length="middle" direction="in"/>
+<pin name="SCK_SERIAL_CLOCK" x="-25.4" y="0" visible="pin" length="middle" direction="in" function="clk"/>
+<pin name="WOL_WAKE_ON_LAN_ACTIVE_LOW" x="-25.4" y="-10.16" visible="pin" length="middle" direction="out" function="dot"/>
+<pin name="SO_MISO_MASTER_IN_SLAVE_OUT" x="-25.4" y="-5.08" visible="pin" length="middle" direction="out"/>
+<pin name="CLK_CLOCK_OUT" x="-25.4" y="-15.24" visible="pin" length="middle" direction="out"/>
+<pin name="INT_INTERRUPT_ACTIVE_LOW" x="-25.4" y="-12.7" visible="pin" length="middle" direction="out" function="dot"/>
+<pin name="GND2" x="-25.4" y="5.08" visible="pin" length="middle" direction="sup" swaplevel="1"/>
+<pin name="5V_TO_REGULATOR" x="-25.4" y="10.16" visible="pin" length="middle" direction="sup"/>
+<wire x1="-20.32" y1="15.24" x2="-20.32" y2="-17.78" width="0.254" layer="94"/>
+<wire x1="-20.32" y1="-17.78" x2="22.86" y2="-17.78" width="0.254" layer="94"/>
+<wire x1="22.86" y1="-17.78" x2="22.86" y2="15.24" width="0.254" layer="94"/>
+<wire x1="22.86" y1="15.24" x2="-20.32" y2="15.24" width="0.254" layer="94"/>
+<text x="-20.32" y="17.78" size="1.778" layer="94" font="vector" align="top-left">&gt;NAME</text>
+<text x="-20.32" y="-20.32" size="1.778" layer="94" font="vector">&gt;VALUE</text>
+</symbol>
+</symbols>
+<devicesets>
+<deviceset name="NRF24L01_MODULE" uservalue="yes">
+<gates>
+<gate name="RADIO" symbol="NRF24L01_MODULE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="NRF24L01_MODULE">
+<connects>
+<connect gate="RADIO" pin="CE_RADIO_ENABLE" pad="P$3"/>
+<connect gate="RADIO" pin="CSN_CHIP_SELECT_ACTIVE_LOW" pad="P$4"/>
+<connect gate="RADIO" pin="GND" pad="P$1"/>
+<connect gate="RADIO" pin="IRQ_INTERRUPT_REQUEST_ACTIVE_LOW" pad="P$8"/>
+<connect gate="RADIO" pin="MISO_MASTER_IN_SLAVE_OUT" pad="P$7"/>
+<connect gate="RADIO" pin="MOSI_MASTER_OUT_SLAVE_IN" pad="P$6"/>
+<connect gate="RADIO" pin="SCK_SERIAL_CLOCK" pad="P$5"/>
+<connect gate="RADIO" pin="VCC_3.3V" pad="P$2"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="VALUE" value="NRF28L01 Module" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="BLUETOOTH_MODULE" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="BLUETOOTH_MODULE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="BLUETOOTH_MODULE">
+<connects>
+<connect gate="G$1" pin="EN_ENABLE_ACTIVE_LOW_HAS_PULLDOWN" pad="P$6"/>
+<connect gate="G$1" pin="GND" pad="P$4"/>
+<connect gate="G$1" pin="RXD_3.3V_MASTER_OUT_MODULE_IN" pad="P$2"/>
+<connect gate="G$1" pin="STATE_HIGH_WHEN_CONNECTED_5HZ_WHEN_NOT" pad="P$1"/>
+<connect gate="G$1" pin="TXD_3.3V_MASTER_IN_MODULE_OUT" pad="P$3"/>
+<connect gate="G$1" pin="VCC_3.6V_TO_6V" pad="P$5"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="VALUE" value="Bluetooth Module" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+<deviceset name="ETHERNET_ENC28J60_MODULE" uservalue="yes">
+<gates>
+<gate name="G$1" symbol="ETHERNET_MODULE" x="0" y="0"/>
+</gates>
+<devices>
+<device name="" package="ETHERNET_ENC28J60_MODULE">
+<connects>
+<connect gate="G$1" pin="5V_TO_REGULATOR" pad="P$12"/>
+<connect gate="G$1" pin="CLK_CLOCK_OUT" pad="P$9"/>
+<connect gate="G$1" pin="CS_CHIP_SELECT_ACTIVE_LOW" pad="P$3"/>
+<connect gate="G$1" pin="GND" pad="P$1"/>
+<connect gate="G$1" pin="GND2" pad="P$11"/>
+<connect gate="G$1" pin="INT_INTERRUPT_ACTIVE_LOW" pad="P$10"/>
+<connect gate="G$1" pin="RST_RESET_ACTIVE_LOW" pad="P$4"/>
+<connect gate="G$1" pin="SCK_SERIAL_CLOCK" pad="P$6"/>
+<connect gate="G$1" pin="SI_MOSI_MASTER_OUT_SLAVE_IN" pad="P$5"/>
+<connect gate="G$1" pin="SO_MISO_MASTER_IN_SLAVE_OUT" pad="P$8"/>
+<connect gate="G$1" pin="VCC_3.3V" pad="P$2"/>
+<connect gate="G$1" pin="WOL_WAKE_ON_LAN_ACTIVE_LOW" pad="P$7"/>
+</connects>
+<technologies>
+<technology name="">
+<attribute name="VALUE" value="ENC28J60 Module" constant="no"/>
+</technology>
+</technologies>
+</device>
+</devices>
+</deviceset>
+</devicesets>
+</library>
+</drawing>
+<compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
+</compatibility>
+</eagle>
