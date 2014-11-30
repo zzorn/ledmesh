@@ -45900,7 +45900,7 @@ Connector</text>
 <part name="LOGO3" library="Logo" deviceset="LOGO-OSHW-8MIL" device="X0100-NT"/>
 <part name="SUPPLY40" library="supply2" deviceset="GND" device=""/>
 <part name="C10" library="rcl" deviceset="C-EU" device="C0805" value="100 nF"/>
-<part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
+<part name="+3.3V" library="supply1" deviceset="+3V3" device=""/>
 <part name="SUPPLY42" library="supply2" deviceset="GND" device=""/>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 <part name="3.3V_REGULATOR" library="burr-brown" deviceset="REG1117" device="" value="AMS1117-3.3"/>
@@ -45911,7 +45911,7 @@ Connector</text>
 <part name="SUPPLY33" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY34" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY43" library="supply2" deviceset="GND" device=""/>
-<part name="C15" library="rcl" deviceset="CPOL-EU" device="E2.5-6" value="100 uF"/>
+<part name="C15" library="rcl" deviceset="C-EU" device="C0805K" value="10 uF"/>
 <part name="L1" library="adafruit" deviceset="WS2812B" device=""/>
 <part name="SUPPLY39" library="supply2" deviceset="+5V" device=""/>
 <part name="SUPPLY41" library="supply2" deviceset="GND" device=""/>
@@ -45922,7 +45922,7 @@ Connector</text>
 <part name="BATTERY" library="SparkFun" deviceset="M02" device="LOCK_LONGPADS"/>
 <part name="SUPPLY4" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY11" library="supply2" deviceset="GND" device=""/>
-<part name="R3" library="rcl" deviceset="R-EU_" device="M0805" value="470R"/>
+<part name="R3" library="rcl" deviceset="R-EU_" device="M0805" value="(470R)"/>
 <part name="C1" library="rcl" deviceset="C-EU" device="C0805" value="100 nF"/>
 <part name="SUPPLY14" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY16" library="supply2" deviceset="GND" device=""/>
@@ -45968,8 +45968,7 @@ Connector</text>
 <part name="SUPPLY10" library="supply2" deviceset="+5V" device=""/>
 <part name="SUPPLY46" library="supply2" deviceset="+5V" device=""/>
 <part name="SUPPLY47" library="supply2" deviceset="GND" device=""/>
-<part name="C3" library="rcl" deviceset="CPOL-EU" device="E2.5-6" value="100 uF"/>
-<part name="C4" library="rcl" deviceset="C-EU" device="C0805" value="100 nF"/>
+<part name="C3" library="rcl" deviceset="C-EU" device="C0805K" value="10 uF"/>
 <part name="SUPPLY5" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY12" library="supply2" deviceset="GND" device=""/>
 <part name="SUPPLY24" library="supply2" deviceset="GND" device=""/>
@@ -45977,6 +45976,8 @@ Connector</text>
 <part name="SG1" library="SparkFun-Electromechanical" deviceset="BUZZER" device="NS"/>
 <part name="SUPPLY48" library="supply2" deviceset="GND" device=""/>
 <part name="C5" library="rcl" deviceset="C-EU" device="C0805" value="100 nF"/>
+<part name="EXTRA_OUT" library="SparkFun-Connectors" deviceset="M02" device="PTH"/>
+<part name="SUPPLY49" library="supply2" deviceset="GND" device=""/>
 </parts>
 <sheets>
 <sheet>
@@ -45991,7 +45992,7 @@ Connector</text>
 <text x="93.98" y="106.68" size="1.778" layer="91">NOTE:
 The regulator needs at least a 10mA load to work, 
 and the radio may draw less than that, 
-so we add an additional pulldown resistor on the 3.3V power rail.</text>
+so we add an optional pulldown resistor on the 3.3V power rail.</text>
 <text x="99.06" y="15.24" size="2.54" layer="91">Preview LED</text>
 <text x="-104.14" y="17.78" size="2.54" layer="91">Vibration sensor</text>
 <text x="-106.68" y="86.36" size="2.54" layer="91">Turn Wheel</text>
@@ -46016,7 +46017,7 @@ so we add an additional pulldown resistor on the 3.3V power rail.</text>
 <instance part="LOGO3" gate="G$1" x="109.22" y="-81.28"/>
 <instance part="SUPPLY40" gate="GND" x="60.96" y="121.92"/>
 <instance part="C10" gate="G$1" x="60.96" y="129.54"/>
-<instance part="+3V1" gate="G$1" x="60.96" y="139.7"/>
+<instance part="+3.3V" gate="G$1" x="60.96" y="139.7"/>
 <instance part="SUPPLY42" gate="GND" x="-45.72" y="15.24"/>
 <instance part="+3V2" gate="G$1" x="-45.72" y="22.86"/>
 <instance part="3.3V_REGULATOR" gate="G$1" x="114.3" y="137.16"/>
@@ -46092,7 +46093,6 @@ so we add an additional pulldown resistor on the 3.3V power rail.</text>
 <instance part="SUPPLY46" gate="+5V" x="116.84" y="91.44"/>
 <instance part="SUPPLY47" gate="GND" x="116.84" y="81.28"/>
 <instance part="C3" gate="G$1" x="73.66" y="129.54"/>
-<instance part="C4" gate="G$1" x="55.88" y="129.54"/>
 <instance part="SUPPLY5" gate="GND" x="-124.46" y="-53.34"/>
 <instance part="SUPPLY12" gate="GND" x="-124.46" y="-63.5"/>
 <instance part="SUPPLY24" gate="GND" x="-86.36" y="-76.2" rot="R90"/>
@@ -46100,6 +46100,8 @@ so we add an additional pulldown resistor on the 3.3V power rail.</text>
 <instance part="SG1" gate="G$1" x="73.66" y="-68.58" rot="R270"/>
 <instance part="SUPPLY48" gate="GND" x="55.88" y="-81.28"/>
 <instance part="C5" gate="G$1" x="55.88" y="-71.12"/>
+<instance part="EXTRA_OUT" gate="G$1" x="121.92" y="33.02" rot="R180"/>
+<instance part="SUPPLY49" gate="GND" x="104.14" y="27.94"/>
 </instances>
 <busses>
 </busses>
@@ -46114,7 +46116,7 @@ so we add an additional pulldown resistor on the 3.3V power rail.</text>
 <pinref part="C8" gate="G$1" pin="2"/>
 <wire x1="22.86" y1="124.46" x2="30.48" y2="124.46" width="0.1524" layer="91"/>
 <junction x="22.86" y="124.46"/>
-<pinref part="C15" gate="G$1" pin="-"/>
+<pinref part="C15" gate="G$1" pin="2"/>
 <wire x1="10.16" y1="124.46" x2="22.86" y2="124.46" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="2"/>
 <wire x1="40.64" y1="124.46" x2="30.48" y2="124.46" width="0.1524" layer="91"/>
@@ -46136,11 +46138,9 @@ so we add an additional pulldown resistor on the 3.3V power rail.</text>
 <segment>
 <pinref part="SUPPLY40" gate="GND" pin="GND"/>
 <pinref part="C10" gate="G$1" pin="2"/>
-<pinref part="C3" gate="G$1" pin="-"/>
+<pinref part="C3" gate="G$1" pin="2"/>
 <wire x1="73.66" y1="124.46" x2="60.96" y2="124.46" width="0.1524" layer="91"/>
 <junction x="60.96" y="124.46"/>
-<pinref part="C4" gate="G$1" pin="2"/>
-<wire x1="55.88" y1="124.46" x2="60.96" y2="124.46" width="0.1524" layer="91"/>
 </segment>
 <segment>
 <wire x1="-15.24" y1="17.78" x2="-45.72" y2="17.78" width="0.1524" layer="91"/>
@@ -46278,6 +46278,11 @@ so we add an additional pulldown resistor on the 3.3V power rail.</text>
 <wire x1="55.88" y1="-78.74" x2="55.88" y2="-76.2" width="0.1524" layer="91"/>
 <junction x="55.88" y="-78.74"/>
 </segment>
+<segment>
+<pinref part="EXTRA_OUT" gate="G$1" pin="2"/>
+<pinref part="SUPPLY49" gate="GND" pin="GND"/>
+<wire x1="104.14" y1="30.48" x2="114.3" y2="30.48" width="0.1524" layer="91"/>
+</segment>
 </net>
 <net name="+5V" class="0">
 <segment>
@@ -46290,7 +46295,7 @@ so we add an additional pulldown resistor on the 3.3V power rail.</text>
 <pinref part="C8" gate="G$1" pin="1"/>
 <wire x1="22.86" y1="132.08" x2="30.48" y2="132.08" width="0.1524" layer="91"/>
 <junction x="22.86" y="132.08"/>
-<pinref part="C15" gate="G$1" pin="+"/>
+<pinref part="C15" gate="G$1" pin="1"/>
 <wire x1="10.16" y1="132.08" x2="22.86" y2="132.08" width="0.1524" layer="91"/>
 <pinref part="C1" gate="G$1" pin="1"/>
 <wire x1="40.64" y1="132.08" x2="30.48" y2="132.08" width="0.1524" layer="91"/>
@@ -46416,38 +46421,6 @@ so we add an additional pulldown resistor on the 3.3V power rail.</text>
 <pinref part="RADIO" gate="RADIO" pin="IRQ_INTERRUPT_REQUEST_ACTIVE_LOW"/>
 </segment>
 </net>
-<net name="+3V3" class="0">
-<segment>
-<pinref part="C10" gate="G$1" pin="1"/>
-<pinref part="+3V1" gate="G$1" pin="+3V3"/>
-<wire x1="60.96" y1="137.16" x2="60.96" y2="132.08" width="0.1524" layer="91"/>
-<pinref part="C3" gate="G$1" pin="+"/>
-<wire x1="73.66" y1="132.08" x2="60.96" y2="132.08" width="0.1524" layer="91"/>
-<junction x="60.96" y="132.08"/>
-<pinref part="C4" gate="G$1" pin="1"/>
-<wire x1="55.88" y1="132.08" x2="60.96" y2="132.08" width="0.1524" layer="91"/>
-</segment>
-<segment>
-<pinref part="+3V3" gate="G$1" pin="+3V3"/>
-<wire x1="167.64" y1="139.7" x2="167.64" y2="137.16" width="0.1524" layer="91"/>
-<pinref part="3.3V_REGULATOR" gate="G$1" pin="VOUT"/>
-<pinref part="C12" gate="G$1" pin="+"/>
-<wire x1="167.64" y1="137.16" x2="154.94" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="154.94" y1="137.16" x2="132.08" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="137.16" x2="127" y2="137.16" width="0.1524" layer="91"/>
-<wire x1="132.08" y1="132.08" x2="132.08" y2="137.16" width="0.1524" layer="91"/>
-<junction x="132.08" y="137.16"/>
-<pinref part="R3" gate="G$1" pin="2"/>
-<wire x1="154.94" y1="134.62" x2="154.94" y2="137.16" width="0.1524" layer="91"/>
-<junction x="154.94" y="137.16"/>
-</segment>
-<segment>
-<pinref part="JP1" gate="G$1" pin="3"/>
-<pinref part="+3V5" gate="G$1" pin="+3V3"/>
-<wire x1="165.1" y1="-45.72" x2="165.1" y2="-48.26" width="0.1524" layer="91"/>
-<wire x1="165.1" y1="-48.26" x2="154.94" y2="-48.26" width="0.1524" layer="91"/>
-</segment>
-</net>
 <net name="LCD_CONTRAST" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="VO"/>
@@ -46462,20 +46435,20 @@ so we add an additional pulldown resistor on the 3.3V power rail.</text>
 <segment>
 <pinref part="U1" gate="G$1" pin="RS"/>
 <label x="132.08" y="66.04" size="1.778" layer="95"/>
-<pinref part="IC1" gate="A" pin="QB"/>
-<wire x1="86.36" y1="71.12" x2="101.6" y2="71.12" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="71.12" x2="101.6" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="101.6" y1="66.04" x2="154.94" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="68.58" x2="104.14" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="104.14" y1="66.04" x2="154.94" y2="66.04" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="A" pin="QC"/>
+<wire x1="104.14" y1="68.58" x2="86.36" y2="68.58" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="LCD_ENABLE" class="0">
 <segment>
 <pinref part="U1" gate="G$1" pin="E"/>
 <label x="132.08" y="60.96" size="1.778" layer="95"/>
-<pinref part="IC1" gate="A" pin="QC"/>
-<wire x1="86.36" y1="68.58" x2="99.06" y2="68.58" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="68.58" x2="99.06" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="99.06" y1="60.96" x2="154.94" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="71.12" x2="101.6" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="101.6" y1="60.96" x2="154.94" y2="60.96" width="0.1524" layer="91"/>
+<pinref part="IC1" gate="A" pin="QB"/>
+<wire x1="86.36" y1="71.12" x2="101.6" y2="71.12" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="LCD_DATA4" class="0">
@@ -46483,9 +46456,9 @@ so we add an additional pulldown resistor on the 3.3V power rail.</text>
 <pinref part="U1" gate="G$1" pin="DB4"/>
 <label x="132.08" y="48.26" size="1.778" layer="95"/>
 <pinref part="IC1" gate="A" pin="QD"/>
-<wire x1="86.36" y1="66.04" x2="96.52" y2="66.04" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="66.04" x2="96.52" y2="48.26" width="0.1524" layer="91"/>
-<wire x1="96.52" y1="48.26" x2="154.94" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="66.04" x2="99.06" y2="66.04" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="66.04" x2="99.06" y2="48.26" width="0.1524" layer="91"/>
+<wire x1="99.06" y1="48.26" x2="154.94" y2="48.26" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="LCD_DATA5" class="0">
@@ -46493,9 +46466,9 @@ so we add an additional pulldown resistor on the 3.3V power rail.</text>
 <pinref part="U1" gate="G$1" pin="DB5"/>
 <label x="132.08" y="45.72" size="1.778" layer="95"/>
 <pinref part="IC1" gate="A" pin="QE"/>
-<wire x1="86.36" y1="63.5" x2="93.98" y2="63.5" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="63.5" x2="93.98" y2="45.72" width="0.1524" layer="91"/>
-<wire x1="93.98" y1="45.72" x2="154.94" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="63.5" x2="96.52" y2="63.5" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="63.5" x2="96.52" y2="45.72" width="0.1524" layer="91"/>
+<wire x1="96.52" y1="45.72" x2="154.94" y2="45.72" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="LCD_DATA6" class="0">
@@ -46503,9 +46476,9 @@ so we add an additional pulldown resistor on the 3.3V power rail.</text>
 <pinref part="U1" gate="G$1" pin="DB6"/>
 <label x="132.08" y="43.18" size="1.778" layer="95"/>
 <pinref part="IC1" gate="A" pin="QF"/>
-<wire x1="86.36" y1="60.96" x2="91.44" y2="60.96" width="0.1524" layer="91"/>
-<wire x1="91.44" y1="60.96" x2="91.44" y2="43.18" width="0.1524" layer="91"/>
-<wire x1="91.44" y1="43.18" x2="154.94" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="60.96" x2="93.98" y2="60.96" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="60.96" x2="93.98" y2="43.18" width="0.1524" layer="91"/>
+<wire x1="93.98" y1="43.18" x2="154.94" y2="43.18" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="LCD_DATA7" class="0">
@@ -46513,9 +46486,9 @@ so we add an additional pulldown resistor on the 3.3V power rail.</text>
 <pinref part="U1" gate="G$1" pin="DB7"/>
 <label x="132.08" y="40.64" size="1.778" layer="95"/>
 <pinref part="IC1" gate="A" pin="QG"/>
-<wire x1="86.36" y1="58.42" x2="88.9" y2="58.42" width="0.1524" layer="91"/>
-<wire x1="88.9" y1="58.42" x2="88.9" y2="40.64" width="0.1524" layer="91"/>
-<wire x1="88.9" y1="40.64" x2="154.94" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="86.36" y1="58.42" x2="91.44" y2="58.42" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="58.42" x2="91.44" y2="40.64" width="0.1524" layer="91"/>
+<wire x1="91.44" y1="40.64" x2="154.94" y2="40.64" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="STATUS_LED" class="0">
@@ -46707,20 +46680,6 @@ so we add an additional pulldown resistor on the 3.3V power rail.</text>
 <pinref part="L2" gate="G$1" pin="DIN"/>
 </segment>
 </net>
-<net name="VCC_3.3V" class="0">
-<segment>
-<wire x1="-15.24" y1="20.32" x2="-45.72" y2="20.32" width="0.1524" layer="91"/>
-<label x="-40.64" y="20.32" size="1.778" layer="95"/>
-<pinref part="+3V2" gate="G$1" pin="+3V3"/>
-<pinref part="RADIO" gate="RADIO" pin="VCC_3.3V"/>
-</segment>
-<segment>
-<wire x1="-10.16" y1="-58.42" x2="-50.8" y2="-58.42" width="0.1524" layer="91"/>
-<label x="-43.18" y="-58.42" size="1.778" layer="95"/>
-<pinref part="+3V7" gate="G$1" pin="+3V3"/>
-<pinref part="ETHERNET" gate="G$1" pin="VCC_3.3V"/>
-</segment>
-</net>
 <net name="RADIO_ENABLE" class="0">
 <segment>
 <wire x1="-40.64" y1="5.08" x2="-15.24" y2="5.08" width="0.1524" layer="91"/>
@@ -46890,6 +46849,58 @@ so we add an additional pulldown resistor on the 3.3V power rail.</text>
 <pinref part="IC1" gate="A" pin="QA"/>
 <wire x1="86.36" y1="73.66" x2="101.6" y2="73.66" width="0.1524" layer="91"/>
 <label x="91.44" y="73.66" size="1.778" layer="95"/>
+</segment>
+</net>
+<net name="EXTRA_OUTPUT" class="0">
+<segment>
+<pinref part="IC1" gate="A" pin="QH"/>
+<wire x1="86.36" y1="55.88" x2="88.9" y2="55.88" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="55.88" x2="88.9" y2="33.02" width="0.1524" layer="91"/>
+<wire x1="88.9" y1="33.02" x2="114.3" y2="33.02" width="0.1524" layer="91"/>
+<label x="91.44" y="33.02" size="1.778" layer="95"/>
+<pinref part="EXTRA_OUT" gate="G$1" pin="1"/>
+</segment>
+</net>
+<net name="+3.3V" class="0">
+<segment>
+<wire x1="-15.24" y1="20.32" x2="-45.72" y2="20.32" width="0.1524" layer="91"/>
+<label x="-40.64" y="20.32" size="1.778" layer="95"/>
+<pinref part="+3V2" gate="G$1" pin="+3V3"/>
+<pinref part="RADIO" gate="RADIO" pin="VCC_3.3V"/>
+</segment>
+<segment>
+<pinref part="+3V3" gate="G$1" pin="+3V3"/>
+<wire x1="167.64" y1="139.7" x2="167.64" y2="137.16" width="0.1524" layer="91"/>
+<pinref part="3.3V_REGULATOR" gate="G$1" pin="VOUT"/>
+<pinref part="C12" gate="G$1" pin="+"/>
+<wire x1="167.64" y1="137.16" x2="154.94" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="154.94" y1="137.16" x2="132.08" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="137.16" x2="127" y2="137.16" width="0.1524" layer="91"/>
+<wire x1="132.08" y1="132.08" x2="132.08" y2="137.16" width="0.1524" layer="91"/>
+<junction x="132.08" y="137.16"/>
+<pinref part="R3" gate="G$1" pin="2"/>
+<wire x1="154.94" y1="134.62" x2="154.94" y2="137.16" width="0.1524" layer="91"/>
+<junction x="154.94" y="137.16"/>
+</segment>
+<segment>
+<wire x1="-10.16" y1="-58.42" x2="-50.8" y2="-58.42" width="0.1524" layer="91"/>
+<label x="-43.18" y="-58.42" size="1.778" layer="95"/>
+<pinref part="+3V7" gate="G$1" pin="+3V3"/>
+<pinref part="ETHERNET" gate="G$1" pin="VCC_3.3V"/>
+</segment>
+<segment>
+<pinref part="JP1" gate="G$1" pin="3"/>
+<pinref part="+3V5" gate="G$1" pin="+3V3"/>
+<wire x1="165.1" y1="-45.72" x2="165.1" y2="-48.26" width="0.1524" layer="91"/>
+<wire x1="165.1" y1="-48.26" x2="154.94" y2="-48.26" width="0.1524" layer="91"/>
+</segment>
+<segment>
+<pinref part="C10" gate="G$1" pin="1"/>
+<pinref part="+3.3V" gate="G$1" pin="+3V3"/>
+<wire x1="60.96" y1="137.16" x2="60.96" y2="132.08" width="0.1524" layer="91"/>
+<pinref part="C3" gate="G$1" pin="1"/>
+<wire x1="73.66" y1="132.08" x2="60.96" y2="132.08" width="0.1524" layer="91"/>
+<junction x="60.96" y="132.08"/>
 </segment>
 </net>
 </nets>
