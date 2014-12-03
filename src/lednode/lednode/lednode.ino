@@ -5,37 +5,142 @@
 
 #include "FastLED.h"
 
-// Test addresses
-#define CLIENT_ADDRESS 1
-#define SERVER_ADDRESS 2
+
+// Pins
+#define PIN_LEDSTRIP1 2
+#define PIN_LEDSTRIP2 4
+#define PIN_LEDSTRIP3 7
+#define PIN_LEDSTRIP4 8
+
+#define PIN_SPOTLIGHT1 3
+#define PIN_SPOTLIGHT2 5
+#define PIN_SPOTLIGHT3 6
+#define PIN_SPOTLIGHT4 9
+#define PIN_SPOTLIGHT5 10
+#define PIN_SPOTLIGHT6 A3
+
+#define PIN_RADIO_ENABLE A1
+#define PIN_RADIO_CSN A0
+#define PIN_RADIO_CLOCK 13
+#define PIN_RADIO_MISO 12
+#define PIN_RADIO_MOSI 11
+
+#define PIN_SOUND_ANALOG A2
+#define PIN_LIGHTLEVEL A7
+#define PIN_PROXIMITY A6
+
+#define PIN_EXTRAIO1 A4
+#define PIN_EXTRAIO2 A5
+
+#define LEDSTRIP_COUNT 4
+
+int ledstripPins[] = {
+  PIN_LEDSTRIP1,
+  PIN_LEDSTRIP2,
+  PIN_LEDSTRIP3,
+  PIN_LEDSTRIP4
+};
+
+#define SPOTLIGHT_COUNT 6
+
+int spotlightPins[] = {
+  PIN_SPOTLIGHT1,
+  PIN_SPOTLIGHT2,
+  PIN_SPOTLIGHT3,
+  PIN_SPOTLIGHT4,
+  PIN_SPOTLIGHT5,
+  PIN_SPOTLIGHT6
+};
 
 
-// For led chips like Neopixels, which have a data line, ground, and power, you just
-// need to define DATA_PIN.  For led chipsets that are SPI based (four wires - data, clock,
-// ground, and power), like the LPD8806, define both DATA_PIN and CLOCK_PIN
-#define LEDS_DATA_PIN1 3
-#define LEDS_DATA_PIN2 4
+// Address of this node
+// TODO: This needs to be incrementally defined for each node when programming them?  Or look for a free address and save / load it from eprom
+#define DEFAULT_NODE_ADDRESS 99
+uint8_t thisNodeAddress = DEFAULT_NODE_ADDRESS;
 
 // Singleton instance of the radio driver
-RH_NRF24 driver;
-// RH_NRF24 driver(8, 7);   // For RFM73 on Anarduino Mini
+RH_NRF24 driver(PIN_RADIO_ENABLE, PIN_RADIO_CSN);
 
 // Class to manage message delivery and receipt, using the driver declared above
-RHDatagram manager(driver, SERVER_ADDRESS);
+RHDatagram manager(driver, thisNodeAddress);
 
-// How many leds in your strip?
-#define NUM_LEDS1 10
-#define NUM_LEDS2 10
 
-#define NUM_LEDSTRIPS 2
+void printMessage(char* message) {
+  Serial.println(message);
+//  Serial.flush();
+}
 
-// Define the array of leds
-CRGB leds1[NUM_LEDS1];
-CRGB leds2[NUM_LEDS2];
+void printValue(char* message, int value) {
+  Serial.print(message);
+  Serial.println(value, DEC);
+//  Serial.flush();
+}
 
-CRGB* ledStrips[NUM_LEDSTRIPS];
 
-uint16_t ledStripSizes[NUM_LEDSTRIPS];
+// Array with current led colors
+#define MAX_LED_COUNT 100
+#define DEFAULT_LED_COUNT 20
+CRGB ledColors[MAX_LED_COUNT];
+int nextFreeLed = 0;
+
+// Holds data for one led strip
+class LedStrip {
+  
+  int pin;
+  int ledCount;
+  CRGB* colors;
+
+  public:
+  void init(int pin_, int ledCount_) {
+    pin = pin_;
+    
+    if (nextFreeLed < MAX_LED_COUNT) {
+//      CRGB* colorArrayLocation = &ledColors[nextFreeLed];
+//      printValue("colorArrayLocation ", (int) colorArrayLocation);
+//      printValue("ledColors ", (int)ledColors);
+      //colors = colorArrayLocation;     
+    }
+    
+    int numAvailable = MAX_LED_COUNT - nextFreeLed;
+    if (numAvailable <= 0) {
+      // No free leds left
+      ledCount = 0;
+    }
+    else if (numAvailable < ledCount_) {
+      // Not enough free leds left
+      ledCount = numAvailable;
+    }
+    else {    
+      ledCount = ledCount_;
+    }
+    
+    nextFreeLed += ledCount;
+
+//    printValue("colors ", (int) colors);
+    printValue("pin ", pin);
+    printValue("pin_ ", pin_);
+    printValue("ledCount ", ledCount);
+    printValue("nextFeeLed ", nextFreeLed);
+    printValue("nextFeeLed ", nextFreeLed);
+    
+    // Register with fastled library
+    // NOTE: Kludge to manage pins that need to be passed in as constants
+    /*
+    switch(pin) {
+      case PIN_LEDSTRIP1: FastLED.addLeds<NEOPIXEL, PIN_LEDSTRIP1>(colors, ledCount); break;
+      case PIN_LEDSTRIP2: FastLED.addLeds<NEOPIXEL, PIN_LEDSTRIP2>(colors, ledCount); break;
+      case PIN_LEDSTRIP3: FastLED.addLeds<NEOPIXEL, PIN_LEDSTRIP3>(colors, ledCount); break;
+      case PIN_LEDSTRIP4: FastLED.addLeds<NEOPIXEL, PIN_LEDSTRIP4>(colors, ledCount); break;
+      default: printMessage("Unsupported led strip pin number "); break;
+    }
+    */
+  }  
+  
+};
+
+LedStrip ledStrips[LEDSTRIP_COUNT];
+
+
 
 CRGB currentColor;
 CRGB targetColor;
@@ -97,33 +202,52 @@ CRGB randomColor() {
 }
 
 
-void setup() 
-{
-
+void setup()  {
   Serial.begin(9600);
-  Serial.println("Lednode starting up...");
-  Serial.flush();
 
-  ledStrips[0] = &leds1[0];
-  ledStrips[1] = &leds2[0];
-  ledStripSizes[0] = NUM_LEDS1;
-  ledStripSizes[1] = NUM_LEDS2;
+  Serial.println("Initializing");
+  printMessage("Lednode starting up...");
 
-  
+  // Setup pins
+  printMessage("Setting up pins");
+  for (int i = 0; i < LEDSTRIP_COUNT; i++) {
+     pinMode(ledstripPins[i], OUTPUT);
+  }
+  for (int i = 0; i < SPOTLIGHT_COUNT; i++) {
+     pinMode(spotlightPins[i], OUTPUT);
+  }
+  pinMode(PIN_RADIO_ENABLE, OUTPUT);
+  pinMode(PIN_RADIO_CSN, OUTPUT);
+  pinMode(PIN_RADIO_CLOCK, OUTPUT);
+  pinMode(PIN_RADIO_MOSI, OUTPUT);
+  pinMode(PIN_RADIO_MISO, INPUT);
+
+  pinMode(PIN_SOUND_ANALOG, INPUT);
+  pinMode(PIN_LIGHTLEVEL, INPUT);
+  pinMode(PIN_PROXIMITY, INPUT);
+
+  pinMode(PIN_EXTRAIO1, INPUT);
+  pinMode(PIN_EXTRAIO2, INPUT);
+
+  // Setup ledstrips
+  Serial.println("Setting up ledstrips");
+  for (int i = 0; i < LEDSTRIP_COUNT; i++) {
+      ledStrips[i].init(ledstripPins[i], DEFAULT_LED_COUNT);
+  }
+
+/*
+  // Init radio  
+  printMessage("Setting up radio");
   if (!manager.init()) {
     Serial.println("Radio init failed");
   }  
   // Defaults after init are 2.402 GHz (channel 2), 2Mbps, 0dBm
 
     
-  FastLED.addLeds<NEOPIXEL, LEDS_DATA_PIN1>(leds1, NUM_LEDS1);
-  FastLED.addLeds<NEOPIXEL, LEDS_DATA_PIN2>(leds2, NUM_LEDS2);
-
-
   targetColor = CRGB::Red;
   currentColor = randomColor();   
-
-  Serial.println("Lednode started.");
+*/
+  printMessage("Lednode started.");
 }
 
 
@@ -244,109 +368,12 @@ void updateSolidColorMode(long deltaTime_ms, CRGB color) {
 
     // Set to target  
     int mixAmount = 200;
-    for (int i = 0; i < NUM_LEDS1; i++) {
-        leds1[i] = color;
-    }
-    for (int i = 0; i < NUM_LEDS2; i++) {
-        leds2[i] = color;
+    for (int i = 0; i < MAX_LED_COUNT; i++) {
+        ledColors[i] = color;
     }
 
 }
 
-
-int findEmptyParticle() {
-  // First try to find inactive
-  for (int i = 0; i < NUM_PARTICLES; i++) {
-     if (!particles[i].active) return i;
-  } 
-  
-  // If not found, take oldest
-  long oldestAge = -1;
-  int oldestParticle = 0;
-  for (int i = 0; i < NUM_PARTICLES; i++) {
-     if (particles[i].age_ms > oldestAge) {
-       oldestParticle = i;
-       oldestAge = particles[i].age_ms;
-     }
-  } 
-  
-  return oldestParticle;
-}
-
-int addParticle(int ledStrip, int pos, int velocity, CRGB *colors, long *times, int num) {
-  int i = findEmptyParticle();
-  particles[i].active = true;
-  
-  particles[i].ledStrip = ledStrip;
-  particles[i].pos = pos;
-  particles[i].velocity = velocity;
-  particles[i].subPos = 0;
-  particles[i].color = colors[0];
-  particles[i].targetColors = colors;
-  particles[i].colorFadeTimes_ms = times;
-  particles[i].numTargets = num;
-  particles[i].currentFadeDuration_ms = 0;
-  particles[i].age_ms = 0;
-  
-  return i;  
-}
-
-void updateParticles(long deltaTime_ms) {
-  if (!enableParticles) return;
-  
-  for (int i = 0; i < NUM_PARTICLES; i++) { 
-    if (particles[i].active) {
-      // Update color fade 
-      int target = particles[i].currentTarget;
-      if (target >= particles[i].numTargets) particles[i].active = false;
-      else {
-        // Update age
-        particles[i].age_ms += deltaTime_ms;
-        
-        // Calculate color
-        CRGB sourceColor;
-        if (particles[i].currentTarget <= 0) sourceColor =  particles[i].color;
-        else sourceColor = particles[i].targetColors[target - 1];
-        CRGB targetColor = particles[i].targetColors[target];
-        particles[i].color = mixColor(sourceColor, targetColor, (1024L * (particles[i].colorFadeTimes_ms[target] - particles[i].currentFadeDuration_ms)) / particles[i].colorFadeTimes_ms[target]);
-        
-        // Update ledstrip
-        ledStrips[particles[i].ledStrip][particles[i].pos] = particles[i].color;
-
-        // Update fade
-        particles[i].currentFadeDuration_ms += deltaTime_ms;
-        long phaseDuration = particles[i].colorFadeTimes_ms[target];
-        if (particles[i].currentFadeDuration_ms >= phaseDuration) {
-          // Move to next phase
-          particles[i].currentFadeDuration_ms = 0;
-          particles[i].currentTarget++;
-          if (particles[i].currentTarget >= particles[i].numTargets) particles[i].active = false;
-        } 
-
-/*      
-        // Update pos
-        particles[i].subPos += particles[i].velocity * deltaTime_ms;
-        if (particles[i].subPos >= SUBPOS_RESOLUTION) {
-          particles[i].pos++;
-          particles[i].subPos = 0;
-        }
-        else if (particles[i].subPos <= -SUBPOS_RESOLUTION) {
-          particles[i].pos--;
-          particles[i].subPos = 0;
-        }
-
-        // Kill if it went outide
-        if (particles[i].pos >= ledStripSizes[particles[i].ledStrip]) particles[i].active = false;
-        if (particles[i].pos < 0) particles[i].active = false;
-        // if (particles[i].pos >= ledStripSizes[particles[i].ledStrip]) particles[i].pos = 0;
-        // else if (particles[i].pos < 0]) particles[i].pos =  ledStripSizes[particles[i].ledStrip] - 1;
-*/        
-      }    
-    }
-  }
-  
-  
-}
 
 
 long waveSpeed = 16;
@@ -361,23 +388,16 @@ void updateWaveMode(long deltaTime_ms) {
   
     // Bleed color down the line  
     int bleedAmount = 300;
-    for (int i = NUM_LEDS1 - 1; i > 0; i--) {
-        leds1[i] += mixColor(leds1[i], leds1[i - 1], bleedAmount);
-    }
-    for (int i = 0; i < NUM_LEDS2 - 1; i++) {
-        leds2[i] += mixColor(leds2[i], leds2[i + 1], bleedAmount);
+    for (int i = MAX_LED_COUNT - 1; i > 0; i--) {
+        ledColors[i] += mixColor(ledColors[i], ledColors[i - 1], bleedAmount);
     }
     
     // Bleed current color to first ones
-    leds1[0] = mixColor(leds1[0], sourceColor1, bleedAmount);
-    leds2[NUM_LEDS2 - 1] = mixColor(leds2[NUM_LEDS2 - 1], sourceColor2, bleedAmount);
+    ledColors[0] = mixColor(ledColors[0], sourceColor1, bleedAmount);
 
     // Dampen colors
-    for (int i = 0; i < NUM_LEDS1; i++) {
-        leds1[i].fadeToBlackBy(1);
-    }
-    for (int i = 0; i < NUM_LEDS2; i++) {
-        leds2[i].fadeToBlackBy(1);
+    for (int i = 0; i < MAX_LED_COUNT; i++) {
+        ledColors[i].fadeToBlackBy(1);
     }
 }
 
@@ -386,39 +406,6 @@ long sparkleIntervall_ms = 200;
 long timeToNextSparkle = 1;
 CRGB GRADIENT_FIRE_COLORS[] = {CRGB(255, 240, 150), CRGB(220, 180, 0), CRGB(200, 0, 0), CRGB(30, 0, 50), CRGB(0, 0, 60), CRGB(0, 0, 0)};
 long GRADIENT_FIRE_DURATIONS[] = {500, 1000, 500, 2000, 100, 3000};
-void updateSparkleMode(long deltaTime_ms) {
-
-    // Check if it is time to sparkle
-    timeToNextSparkle -= deltaTime_ms;
-    while (timeToNextSparkle <= 0) {
-      timeToNextSparkle += sparkleIntervall_ms;
-      int ledStrip = random(NUM_LEDSTRIPS);
-      int pos = random(ledStripSizes[ledStrip]);
-      int velocity = random(400) -200;
-      
-      addParticle(ledStrip, pos, velocity, GRADIENT_FIRE_COLORS, GRADIENT_FIRE_DURATIONS, 6);
-
-      
-/*
-      // Light random pixel       
-      int array = random(2);
-      if (array == 0) {
-        leds1[random(NUM_LEDS1)] = targetColor;
-      }
-      else {
-        leds2[random(NUM_LEDS2)] = targetColor;
-      }           
-*/
-    }
-  
-    // Fade to black
-    for (int i = 0; i < NUM_LEDS1; i++) {
-        leds1[i].fadeToBlackBy(1);
-    }
-    for (int i = 0; i < NUM_LEDS2; i++) {
-        leds2[i].fadeToBlackBy(1);
-    }
-}
 
 
 void updateLeds(long deltaTime_ms) {
@@ -446,11 +433,6 @@ void updateLeds(long deltaTime_ms) {
       case MODE_WAVES:
         enableParticles = true;
         updateWaveMode(ledCoolDown_ms);
-        break;
-        
-      case MODE_SPARKLE:
-        enableParticles = true;
-        updateSparkleMode(ledCoolDown_ms);
         break;
         
       default:
@@ -500,14 +482,17 @@ long calculateDeltaTime() {
 void loop() {
 
   // Determine time step
-  long deltaTime_ms = calculateDeltaTime();
+  //long deltaTime_ms = calculateDeltaTime();
     
   // Update subsystems
-  updateRadio(deltaTime_ms);  
-  updateLeds(deltaTime_ms);  
+  //updateRadio(deltaTime_ms);  
+  //updateLeds(deltaTime_ms);  
 
-  updateParticles(deltaTime_ms); 
+  Serial.println("ping");
   
+  delay(500);
+
+
 }
 
 
