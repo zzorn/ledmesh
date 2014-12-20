@@ -81,25 +81,21 @@ void printValue(char* message, int value) {
 #define MAX_LED_COUNT 100
 #define DEFAULT_LED_COUNT 20
 CRGB ledColors[MAX_LED_COUNT];
-int nextFreeLed = 0;
+byte ledAlpha[MAX_LED_COUNT];
 
+short nextFreeLed = 0;
+
+//--------------------------------------------------------
 // Holds data for one led strip
 class LedStrip {
   
-  int pin;
-  int ledCount;
-  CRGB* colors;
+  short ledCount;
+  short startLed;  
 
   public:
-  void init(int pin_, int ledCount_) {
-    pin = pin_;
+  void init(byte pin_, byte ledCount_) {
     
-    if (nextFreeLed < MAX_LED_COUNT) {
-//      CRGB* colorArrayLocation = &ledColors[nextFreeLed];
-//      printValue("colorArrayLocation ", (int) colorArrayLocation);
-//      printValue("ledColors ", (int)ledColors);
-      //colors = colorArrayLocation;     
-    }
+    startLed = nextFreeLed;
     
     int numAvailable = MAX_LED_COUNT - nextFreeLed;
     if (numAvailable <= 0) {
@@ -116,31 +112,54 @@ class LedStrip {
     
     nextFreeLed += ledCount;
 
-//    printValue("colors ", (int) colors);
-    printValue("pin ", pin);
-    printValue("pin_ ", pin_);
+    printValue("pin ", pin_);
+    printValue("startLed ", startLed);
     printValue("ledCount ", ledCount);
-    printValue("nextFeeLed ", nextFreeLed);
     printValue("nextFeeLed ", nextFreeLed);
     
     // Register with fastled library
-    // NOTE: Kludge to manage pins that need to be passed in as constants
-    /*
-    switch(pin) {
-      case PIN_LEDSTRIP1: FastLED.addLeds<NEOPIXEL, PIN_LEDSTRIP1>(colors, ledCount); break;
-      case PIN_LEDSTRIP2: FastLED.addLeds<NEOPIXEL, PIN_LEDSTRIP2>(colors, ledCount); break;
-      case PIN_LEDSTRIP3: FastLED.addLeds<NEOPIXEL, PIN_LEDSTRIP3>(colors, ledCount); break;
-      case PIN_LEDSTRIP4: FastLED.addLeds<NEOPIXEL, PIN_LEDSTRIP4>(colors, ledCount); break;
-      default: printMessage("Unsupported led strip pin number "); break;
+    if (ledCount > 0) {    
+      CRGB* colors = &ledColors[nextFreeLed];
+
+      // Kludge to manage pins that need to be passed in as constants
+      switch(pin_) {
+        case PIN_LEDSTRIP1: FastLED.addLeds<NEOPIXEL, PIN_LEDSTRIP1>(colors, ledCount); break;
+        case PIN_LEDSTRIP2: FastLED.addLeds<NEOPIXEL, PIN_LEDSTRIP2>(colors, ledCount); break;
+        case PIN_LEDSTRIP3: FastLED.addLeds<NEOPIXEL, PIN_LEDSTRIP3>(colors, ledCount); break;
+        case PIN_LEDSTRIP4: FastLED.addLeds<NEOPIXEL, PIN_LEDSTRIP4>(colors, ledCount); break;
+        default: printValue("Unsupported led strip pin ", pin_); break;
+      }
     }
-    */
   }  
   
 };
 
 LedStrip ledStrips[LEDSTRIP_COUNT];
 
+//--------------------------------------------------------
+// Handles a wave that moves along a ledstrip and updates led colors
+class Wave {
+  LedStrip* ledStrip;
 
+  short pos;
+  byte length;
+
+  // Movement speed (negative to left, positive to right)
+  short speed_millisecondsPerLed
+  
+  
+
+
+
+}
+
+
+
+
+
+
+
+//--------------------------------------------------------
 
 CRGB currentColor;
 CRGB targetColor;
