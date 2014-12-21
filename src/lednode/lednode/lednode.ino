@@ -78,7 +78,7 @@ void printValue(char* message, int value) {
 
 
 // Array with current led colors
-#define MAX_LED_COUNT 100
+#define MAX_LED_COUNT 150
 #define DEFAULT_LED_COUNT 20
 CRGB ledColors[MAX_LED_COUNT];
 byte ledAlpha[MAX_LED_COUNT];
@@ -145,13 +145,13 @@ class Wave {
   byte length;
 
   // Movement speed (negative to left, positive to right)
-  short speed_millisecondsPerLed
+  short speed_millisecondsPerLed;
   
   
+  // TODO Continud here
 
 
-
-}
+};
 
 
 
@@ -163,7 +163,6 @@ class Wave {
 
 CRGB currentColor;
 CRGB targetColor;
-uint8_t targetMode;
 
 #define MODE_OFF 0x00
 #define MODE_LIGHT 0x01
@@ -171,7 +170,9 @@ uint8_t targetMode;
 #define MODE_WAVES 0x03
 #define MODE_SPARKLE 0x04
 
-CRGB LIGHT_COLOR = CRGB(150, 190, 255);
+uint8_t targetMode = MODE_LIGHT;
+
+CRGB LIGHT_COLOR = CRGB(255, 70, 170);
 
 
 // Dont put this on the stack:
@@ -187,29 +188,6 @@ boolean enableParticles = false;
 
 unsigned long currentTime_ms = 0;
 long ledCoolDown_ms = 0;
-
-#define SUBPOS_RESOLUTION 10000
-
-struct Particle {
-  boolean active = false;
-  uint8_t ledStrip;
-  uint16_t pos;  
-  CRGB color = CRGB::White;
-  int numTargets = 0;
-  int currentTarget = 0;
-  CRGB *targetColors = NULL;
-  long *colorFadeTimes_ms = NULL;    
-  long currentFadeDuration_ms = 0;
-  long age_ms = 0;
-  
-  int velocity = 0; // Sub pos changes per ms.
-  int subPos = 0; // +/- SUBPOS_RESOLUTION
-};
-
-
-#define NUM_PARTICLES 32
-
-Particle particles[NUM_PARTICLES];
 
 
 CRGB randomColor() {
@@ -250,9 +228,12 @@ void setup()  {
 
   // Setup ledstrips
   Serial.println("Setting up ledstrips");
+/*
   for (int i = 0; i < LEDSTRIP_COUNT; i++) {
       ledStrips[i].init(ledstripPins[i], DEFAULT_LED_COUNT);
   }
+  */
+  ledStrips[0].init(ledstripPins[0], 50);
 
 /*
   // Init radio  
@@ -263,10 +244,20 @@ void setup()  {
   // Defaults after init are 2.402 GHz (channel 2), 2Mbps, 0dBm
 
     
+*/
   targetColor = CRGB::Red;
   currentColor = randomColor();   
-*/
+
   printMessage("Lednode started.");
+  
+  
+  // DEBUG
+  analogWrite(PIN_SPOTLIGHT1, 255);
+  analogWrite(PIN_SPOTLIGHT2, 140);
+  analogWrite(PIN_SPOTLIGHT3, 10);
+  digitalWrite(PIN_SPOTLIGHT4, HIGH);
+  digitalWrite(PIN_SPOTLIGHT5, HIGH);
+  digitalWrite(PIN_SPOTLIGHT6, HIGH);
 }
 
 
@@ -501,15 +492,15 @@ long calculateDeltaTime() {
 void loop() {
 
   // Determine time step
-  //long deltaTime_ms = calculateDeltaTime();
+  long deltaTime_ms = calculateDeltaTime();
     
   // Update subsystems
   //updateRadio(deltaTime_ms);  
-  //updateLeds(deltaTime_ms);  
+  updateLeds(deltaTime_ms);  
 
-  Serial.println("ping");
+//  Serial.println("ping");
   
-  delay(500);
+//  delay(500);
 
 
 }
